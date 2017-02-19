@@ -28,3 +28,24 @@ Vim and Git are install inside of the container for your convenience.  However, 
 1. Build the Dependencies (see previous section).  All following commands are run from inside of the container.
 2. `./server`
 3. On your host machine (NOT inside the container), open a web browser and go to `localhost:3000`.  You should see the homepage, and the Docker container's CLI should be logging the server output to stdout.
+
+### Exiting the Container without Killing It
+
+If you try to just exit the Docker container, it will stop the container and delete any changes you made to it (like installing the Ruby Gems).  Run the following command to exit the container without stopping it.
+
+- `<Ctrl>-p + <Ctrl>-q` Read as Control and p, then Control and q.
+
+### Reattaching to the Rails Container After Exiting it without Killing It
+
+Once you exit the container as in the above section, You'll probably want to get back into it at some point.  The below command lets you do that.
+
+- `docker attach ruby418` (You need to add `sudo` if you are on Linux).
+
+### Saving changes you make to your container
+
+You might want to save changes you make to your container at some point.  Such changes might include changing your dot config files (such as .zshrc) or gem installations done through Ruby Bundler, like `bundle install`.  To do that, run the following command:
+
+- `docker commit ruby418 josiah14/ruby418:latest` (if you are on Linux, use `sudo`)
+
+The first parameter, ruby418, is the name of the container.  The second parameter, josiah14/ruby418:latest, is the name of the image.  You may want to change this name so that it doesn't conflict if you ever need to update the main image using `docker pull`.  To do that, you could create your own DockerHub account and save it as image `janedoe/ruby418:latest` if you want.  If you do this, make sure you update the image name in your `docker-compose.yml`, and edit your `.gitignore` to ignore this file so that you don't check in this file and break everyone else's build (they might not want to use your customized container).
+
