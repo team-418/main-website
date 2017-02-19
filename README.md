@@ -6,7 +6,7 @@
 
 *For all below commands, if you are using Linux, prepend `sudo`*
 
-1. `docker pull josiah14/heroku-ruby418:latest` To make sure you have the latest version of the Docker container.  Docker will not automatically pull the latest version unless you explicitly tell it to.
+1. `docker pull josiah14/heroku-heroku-ruby418:latest` To make sure you have the latest version of the Docker container.  Docker will not automatically pull the latest version unless you explicitly tell it to.
 2. run `./run-rails-container.sh`
 
 This repository becomes accessible within the Docker container at `/app/user/website`.  You will initially be dropped into `/app/user`, so to access the server code in this repository, run `cd website` from within the container.
@@ -45,7 +45,11 @@ Once you exit the container as in the above section, You'll probably want to get
 
 You might want to save changes you make to your container at some point.  Such changes might include changing your dot config files (such as .zshrc) or gem installations done through Ruby Bundler, like `bundle install`.  To do that, run the following command:
 
-- `docker commit ruby418 josiah14/ruby418:latest` (if you are on Linux, use `sudo`)
+- `docker commit ruby418 josiah14/heroku-ruby418:latest` (if you are on Linux, use `sudo`)
 
-The first parameter, ruby418, is the name of the container.  The second parameter, josiah14/ruby418:latest, is the name of the image.  You may want to change this name so that it doesn't conflict if you ever need to update the main image using `docker pull`.  To do that, you could create your own DockerHub account and save it as image `janedoe/ruby418:latest` if you want.  If you do this, make sure you update the image name in your `docker-compose.yml`, and edit your `.gitignore` to ignore this file so that you don't check in this file and break everyone else's build (they might not want to use your customized container).
+The first parameter, ruby418, is the name of the container.  The second parameter, josiah14/heroku-ruby418:latest, is the name of the image.  You may want to change this name so that it doesn't conflict if you ever need to update the main image using `docker pull`.  To do that, you could create your own DockerHub account and save it as image `janedoe/heroku-ruby418:latest` if you want.  If you do this, make sure you update the image name in your `docker-compose.yml`, and edit the team's `.gitignore` to ignore this file so that you don't check in this file and break everyone else's build (they might not want to use your customized container).
+
+### Pushing changes to Docker for the team
+
+Some changes to the container could benefit the entire team (like caching bundle install runs).  However, before you do this, PM the `general` slack channel with `@channel` to notify everyone.  You must get a thumbs-up from at least one Rails dev, one Javascript dev, and one Graphic Designer before you can push the change to `josiah14/heroku-ruby418:latest`.
 
