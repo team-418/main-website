@@ -9,7 +9,7 @@
 1. `docker pull josiah14/heroku-ruby418:latest` To make sure you have the latest version of the Docker container.  Docker will not automatically pull the latest version unless you explicitly tell it to.
 2. run `./run-rails-container.sh`
 
-This repository becomes accessible within the Docker container at `/app/user/website`.  You will initially be dropped into `/app/user`, so to access the server code in this repository, run `cd website` from within the container.
+This repository becomes accessible within the Docker container at `/app/user/website`.  You will initially be dropped into `/app/user`, so to access the server code in this repository, run `cd website` from within the container. Also, by default, Docker will log you into the container as the `user` user.  The sudo password for `user` is "user" (without the quotes).
 
 Zsh is the default shell, because it's a lot like Bash, but more informative.  If you don't like it, just change the `docker-compose.yml` to say `command: /bin/bash` instead of `command: /bin/zsh`.
 
