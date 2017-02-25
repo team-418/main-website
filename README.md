@@ -6,10 +6,10 @@
 
 *For all below commands, if you are using Linux, prepend `sudo`*
 
-1. `docker pull josiah14/heroku-heroku-ruby418:latest` To make sure you have the latest version of the Docker container.  Docker will not automatically pull the latest version unless you explicitly tell it to.
+1. `docker pull josiah14/heroku-ruby418:latest` To make sure you have the latest version of the Docker container.  Docker will not automatically pull the latest version unless you explicitly tell it to.
 2. run `./run-rails-container.sh`
 
-This repository becomes accessible within the Docker container at `/app/user/website`.  You will initially be dropped into `/app/user`, so to access the server code in this repository, run `cd website` from within the container.
+This repository becomes accessible within the Docker container at `/app/user/website`.  You will initially be dropped into `/app/user`, so to access the server code in this repository, run `cd website` from within the container. Also, by default, Docker will log you into the container as the `user` user.  The sudo password for `user` is "user" (without the quotes).
 
 Zsh is the default shell, because it's a lot like Bash, but more informative.  If you don't like it, just change the `docker-compose.yml` to say `command: /bin/bash` instead of `command: /bin/zsh`.
 
@@ -21,11 +21,12 @@ Vim and Git are install inside of the container for your convenience.  However, 
 
 1. Start the container (see previous section).  All following commands are run from inside of the container.
 2. `cd website`
-3. `bundle update && bundle`
+3. `bundle update && bundle` If prompted for the password, it's `user`
 
 ### Run the Ruby on Rails Server and Access the Website
 
 1. Build the Dependencies (see previous section).  All following commands are run from inside of the container.
+2. Run `bundle exec rake db:create db:migrate`
 2. `./server`
 3. On your host machine (NOT inside the container), open a web browser and go to `localhost:3000`.  You should see the homepage, and the Docker container's CLI should be logging the server output to stdout.
 
@@ -34,6 +35,8 @@ Vim and Git are install inside of the container for your convenience.  However, 
 If you try to just exit the Docker container, it will stop the container and delete any changes you made to it (like installing the Ruby Gems).  Run the following command to exit the container without stopping it.
 
 - `<Ctrl>-p + <Ctrl>-q` Read as Control and p, then Control and q.
+
+On Mac, simply type `exit` at the terminal
 
 ### Reattaching to the Rails Container After Exiting it without Killing It
 
