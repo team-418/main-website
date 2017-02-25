@@ -4,10 +4,14 @@
 /*doc
 ---
 title: Alert
-name: Alert
+name: alert
 category: basics
 ---
 ```html_example
     <div class='alert'>Hello</div>
 ```
 */
+
+.alert {
+  color: red;
+}
