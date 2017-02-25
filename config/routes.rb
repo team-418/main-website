@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :time_periods
+  resources :skills
+  resources :reviews
   resources :principals
   resources :institutions
   resources :principals
