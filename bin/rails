@@ -4,6 +4,17 @@ begin
 rescue LoadError => e
   raise unless e.message.include?('spring')
 end
+
+def find_argument(*arguments, &block)
+  index = ARGV.find_index { |element| arguments.include?(element) }
+  yield(index) if index && block_given?
+  index
+end
+
+find_argument('s', 'server') do |index|
+  ENV['WEBPACK_DEV_SERVER'] ||= 'true'
+end
+
 APP_PATH = File.expand_path('../../config/application', __FILE__)
 require_relative '../config/boot'
 require 'rails/commands'

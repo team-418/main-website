@@ -20,6 +20,7 @@ services:
       - .:/app/user/website
     ports:
       - "3000:3000"
+      - "9000:9000"
     depends_on:
       - pg
     container_name: ruby418
