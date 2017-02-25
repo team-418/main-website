@@ -26,6 +26,9 @@ gem 'react-rails', '1.10.0'
 gem 'dotenv-rails', '2.2.0', require: 'dotenv/rails-now'
 gem 'scrivito', '~> 1.8'
 
+# Authentication
+gem 'devise', '~> 4.2.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
