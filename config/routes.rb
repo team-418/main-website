@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :opportunities
+  resources :opportunities
+  resources :opportunities
+  resources :opportunities
   resources :time_periods
   resources :skills
   resources :reviews

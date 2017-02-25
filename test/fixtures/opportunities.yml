@@ -4,8 +4,8 @@ one:
   opportunity_name: MyString
   opportunity_desc: MyString
   institution_id: 
-  period_id: 
   review_id: 
+  time_period_id: 
   user_id: 
   skill_id: 
 
@@ -13,7 +13,7 @@ two:
   opportunity_name: MyString
   opportunity_desc: MyString
   institution_id: 
-  period_id: 
   review_id: 
+  time_period_id: 
   user_id: 
   skill_id: 

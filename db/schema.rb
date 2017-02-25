@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225232633) do
+ActiveRecord::Schema.define(version: 20170225234537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,25 @@ ActiveRecord::Schema.define(version: 20170225232633) do
   end
 
   add_index "institutions", ["address_id"], name: "index_institutions_on_address_id", using: :btree
+
+  create_table "opportunities", force: :cascade do |t|
+    t.string   "opportunity_name"
+    t.string   "opportunity_desc"
+    t.integer  "institution_id"
+    t.integer  "review_id"
+    t.integer  "time_period_id"
+    t.integer  "user_id"
+    t.integer  "skill_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.text     "volunteers_notified", default: [],              array: true
+  end
+
+  add_index "opportunities", ["institution_id"], name: "index_opportunities_on_institution_id", using: :btree
+  add_index "opportunities", ["review_id"], name: "index_opportunities_on_review_id", using: :btree
+  add_index "opportunities", ["skill_id"], name: "index_opportunities_on_skill_id", using: :btree
+  add_index "opportunities", ["time_period_id"], name: "index_opportunities_on_time_period_id", using: :btree
+  add_index "opportunities", ["user_id"], name: "index_opportunities_on_user_id", using: :btree
 
   create_table "principals", force: :cascade do |t|
     t.datetime "created_at",      null: false
@@ -101,6 +120,11 @@ ActiveRecord::Schema.define(version: 20170225232633) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "institutions", "addresses"
+  add_foreign_key "opportunities", "institutions"
+  add_foreign_key "opportunities", "reviews"
+  add_foreign_key "opportunities", "skills"
+  add_foreign_key "opportunities", "time_periods"
+  add_foreign_key "opportunities", "users"
   add_foreign_key "principals", "institutions"
   add_foreign_key "principals", "users"
 end
