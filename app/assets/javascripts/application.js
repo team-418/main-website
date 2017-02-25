@@ -16,4 +16,5 @@
 //= require react_ujs
 //= require components
 //= require scrivito
+//= require bootstrap-sprockets
 //= require_tree .
