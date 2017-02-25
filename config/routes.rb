@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :principals
+  resources :institutions
+  resources :principals
+  resources :institutions
+  resources :opportunities
+  resources :opportunities
+  resources :opportunities
   devise_for :users
   root 'pages#index'
 

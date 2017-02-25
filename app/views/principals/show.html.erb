@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @principal.created_at %>
+</p>
+
+<p>
+  <strong>Last updated at:</strong>
+  <%= @principal.last_updated_at %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @principal.user %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @principal.institution %>
+</p>
+
+<%= link_to 'Edit', edit_principal_path(@principal) %> |
+<%= link_to 'Back', principals_path %>
