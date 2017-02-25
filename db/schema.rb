@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225222552) do
+ActiveRecord::Schema.define(version: 20170225231852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,21 +34,25 @@ ActiveRecord::Schema.define(version: 20170225222552) do
   end
 
   create_table "institutions", force: :cascade do |t|
-    t.text "institution_name"
-    t.text "institution_status"
+    t.text     "institution_name"
+    t.text     "institution_status"
+    t.integer  "address_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
-  create_table "opportunities", force: :cascade do |t|
-    t.string  "opportunity_name"
-    t.string  "opportunity_desc"
-    t.integer "volunteer_selected"
-    t.text    "volunteers_notified", default: [], array: true
-  end
+  add_index "institutions", ["address_id"], name: "index_institutions_on_address_id", using: :btree
 
   create_table "principals", force: :cascade do |t|
-    t.datetime "created_at"
+    t.datetime "created_at",      null: false
     t.datetime "last_updated_at"
+    t.integer  "user_id"
+    t.integer  "institution_id"
+    t.datetime "updated_at",      null: false
   end
+
+  add_index "principals", ["institution_id"], name: "index_principals_on_institution_id", using: :btree
+  add_index "principals", ["user_id"], name: "index_principals_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                     default: "", null: false
@@ -75,4 +79,7 @@ ActiveRecord::Schema.define(version: 20170225222552) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "institutions", "addresses"
+  add_foreign_key "principals", "institutions"
+  add_foreign_key "principals", "users"
 end
