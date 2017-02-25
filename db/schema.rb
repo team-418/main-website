@@ -11,16 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225212516) do
+ActiveRecord::Schema.define(version: 20170225222552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.text    "address_line_1"
+    t.text    "address_line_2"
+    t.text    "city"
+    t.text    "state"
+    t.integer "zipcode"
+    t.string  "country"
+    t.string  "text"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "author"
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.text "institution_name"
+    t.text "institution_status"
+  end
+
+  create_table "opportunities", force: :cascade do |t|
+    t.string  "opportunity_name"
+    t.string  "opportunity_desc"
+    t.integer "volunteer_selected"
+    t.text    "volunteers_notified", default: [], array: true
+  end
+
+  create_table "principals", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "last_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
