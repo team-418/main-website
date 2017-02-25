@@ -18,7 +18,7 @@ class OpportunitiesControllerTest < ActionController::TestCase
 
   test "should create opportunity" do
     assert_difference('Opportunity.count') do
-      post :create, opportunity: { institution_id: @opportunity.institution_id, opportunity_desc: @opportunity.opportunity_desc, opportunity_name: @opportunity.opportunity_name, period_id: @opportunity.period_id, review_id: @opportunity.review_id, skill_id: @opportunity.skill_id, user_id: @opportunity.user_id }
+      post :create, opportunity: { institution_id: @opportunity.institution_id, opportunity_desc: @opportunity.opportunity_desc, opportunity_name: @opportunity.opportunity_name, review_id: @opportunity.review_id, skill_id: @opportunity.skill_id, time_period_id: @opportunity.time_period_id, user_id: @opportunity.user_id }
     end
 
     assert_redirected_to opportunity_path(assigns(:opportunity))
@@ -35,7 +35,7 @@ class OpportunitiesControllerTest < ActionController::TestCase
   end
 
   test "should update opportunity" do
-    patch :update, id: @opportunity, opportunity: { institution_id: @opportunity.institution_id, opportunity_desc: @opportunity.opportunity_desc, opportunity_name: @opportunity.opportunity_name, period_id: @opportunity.period_id, review_id: @opportunity.review_id, skill_id: @opportunity.skill_id, user_id: @opportunity.user_id }
+    patch :update, id: @opportunity, opportunity: { institution_id: @opportunity.institution_id, opportunity_desc: @opportunity.opportunity_desc, opportunity_name: @opportunity.opportunity_name, review_id: @opportunity.review_id, skill_id: @opportunity.skill_id, time_period_id: @opportunity.time_period_id, user_id: @opportunity.user_id }
     assert_redirected_to opportunity_path(assigns(:opportunity))
   end
 
