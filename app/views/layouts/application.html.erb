@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>Team 418 Application</title>
-        <%= scrivito_head_tags %>
     </head>
 <head>
   <title>Website</title>
@@ -11,14 +10,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
   <div class="container">
     <%= yield %>
   </div>
-
-  <%= scrivito_body_tags %>
-
-<%= scrivito_body_tags %>
 
 </body>
 </html>
