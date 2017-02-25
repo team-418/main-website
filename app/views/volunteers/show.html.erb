@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time period:</strong>
+  <%= @volunteer.time_period %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @volunteer.status %>
+</p>
+
+<p>
+  <strong>Communication opt out:</strong>
+  <%= @volunteer.communication_opt_out %>
+</p>
+
+<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
+<%= link_to 'Back', volunteers_path %>
