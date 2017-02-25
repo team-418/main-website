@@ -13,6 +13,9 @@
 /tmp
 /pgdata
 
+# Ignore dev/test environment vars
+.env
+
 # Created by https://www.gitignore.io/api/osx,windows,linux,emacs,vim,rails,ruby,node,rubymine
 
 ### Emacs ###
