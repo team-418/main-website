@@ -20,8 +20,6 @@ handleChange(event) {
   render() {
     return(
       <div>
-        <Link to="/about">Principal</Link>
-        <Link to="/home"> Volunteer</Link>
         <p>Hello User ({this.props.name})!</p>
         <p>Put in your Name below:</p>
         <input type="text" ref="userInput" onChange={()=>this.handleChange()} />

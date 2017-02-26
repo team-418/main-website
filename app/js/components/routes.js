@@ -13,9 +13,8 @@ class routes extends React.Component{
   render() {
     return (
         <Router history={browserHistory}>
-            <Route path='/' component={MyApp}/>
+            <Route path='/' component={Home}/>
             <Route path='/about' component={About}/>
-            <Route path='/home' component={Home}/>
         </Router>
     );
   }
