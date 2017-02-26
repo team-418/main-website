@@ -17,7 +17,7 @@ category: basics
   background: linear-gradient(
       rgba(66, 99, 116, 0.75), 
       rgba(66, 99, 116, 0.85)
-    ), asset_url('teacher-banner.jpg');
+    ), url(asset-path('teacher-banner.jpg'));
   background-position: center; 
   color: #fff;
 
