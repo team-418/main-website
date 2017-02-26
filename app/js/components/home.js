@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import {Link} from 'react-router';
 
+import PrimaryNavigation from './primary_navigation';
+import MainFooter from './main_footer';
+
 class home extends React.Component{
   constructor(props) {
     super(props);
@@ -12,27 +15,7 @@ class home extends React.Component{
       <div>
         <div className="site-banner">
           <div className="site-banner-header">
-            <nav className="navbar navbar-primary navbar-default navbar-collapse" aria-expanded="true">
-              <div className="container">
-                <div className="navbar-header"> 
-                  <button aria-controls="bs-navbar" aria-expanded="true" className="navbar-toggle" data-target="#documentation-navbar" data-toggle="collapse" type="button"> 
-                    <span className="sr-only">Toggle navigation</span> 
-                    <span className="icon-bar" /> 
-                    <span className="icon-bar" /> 
-                    <span className="icon-bar" /> 
-                  </button> 
-                  <a href="../" className="navbar-brand">PC PrincipalConnect</a> 
-                </div>
-                <nav className="navbar-collapse collapse">
-                  <ul className="nav navbar-nav">        
-                    <li><Link to="/about">About Us</Link></li>
-                  </ul>
-                  <ul className="nav navbar-nav navbar-right">        
-                    <li><a>Login</a></li>
-                  </ul>
-                </nav>
-              </div>
-            </nav>
+            <PrimaryNavigation additionalNavBarClasses={["navbar-primary", "navbar-default", "navbar-collapse"]} leftLinks={[<Link to="/about">About Us</Link>]} rightLinks={[<a>Login</a>]} />
           </div>
           <div className="site-banner-content">
             <div className="container">
@@ -54,6 +37,7 @@ class home extends React.Component{
           </p>
           <p><a>View Opportunity Listings</a></p>
         </section>
+        <MainFooter />
       </div>
     );
   }

@@ -17,7 +17,7 @@ category: basics
   background: linear-gradient(
       rgba(66, 99, 116, 0.75), 
       rgba(66, 99, 116, 0.85)
-    ), asset_url('teacher-banner.jpg');
+    ), url(<%= asset_data_uri('teacher-banner.jpg') %>);
   background-position: center; 
   color: #fff;
 
@@ -76,4 +76,70 @@ category: basics
       line-height: 1em;
     }
   }
+}
+
+.sidebar {
+  @include make-xs-column(3);
+
+  background: #000;
+  position: fixed;
+  margin-top: 50px;
+  height: 100%;
+  position: fixed !important;
+
+  > * {
+    color: #fff;
+  }
+
+  h3 {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .sidebar-navigation ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+
+      > a {
+        color: #fff;
+        width: 100%;
+
+        :hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.body-with-sidebar {
+  @extend .container;
+  @include make-xs-column(9);
+  @include make-xs-column-offset(3);
+  margin-top: 50px;
+}
+
+.main-footer {
+  @extend .clearfix;
+
+  padding: 20px;
+  background-color: #e8e6e7;
+
+  h1, h2 {
+    margin-top: 0;
+  }
+
+  nav li {
+    list-style: none;
+  }
+}
+
+.primary-text {
+  color: #0F8B8D;
 }

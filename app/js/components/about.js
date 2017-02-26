@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import {browserHistory} from 'react-router';
+import { Link } from 'react-router';
+import FixedLayoutWithSidebar from './fixed_layout_with_sidebar';
 
 class about extends React.Component{
     constructor(props) {
@@ -10,8 +11,11 @@ class about extends React.Component{
   render() {
     return (
       <div>
-        <p>About!</p>
-        <div><button onClick={browserHistory.goBack}>Back</button></div>
+        <FixedLayoutWithSidebar 
+          leftLinks={[<a href="#">Elements</a>]} 
+          rightLinks={[<a href="#">Sign In Fake</a>]} 
+          mainBodyContent={ <p>Hello!</p>}
+          sidebarContent={ <h3>This is sidebar!</h3>}/>
       </div>
     );
   }

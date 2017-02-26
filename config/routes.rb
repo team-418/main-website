@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :opportunities
   resources :opportunities
   resources :opportunities
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   root 'pages#index'
 end
