@@ -1,3 +1,11 @@
 .navbar.navbar-primary {
   border-radius: 0;
+  .container {
+      padding: 30px 15px;
+  }
 }
+
+.navbar-nav li {
+  margin-left: 10px;
+}
+
