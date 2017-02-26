@@ -124,3 +124,22 @@ category: basics
   @include make-xs-column-offset(3);
   margin-top: 50px;
 }
+
+.main-footer {
+  @extend .clearfix;
+
+  padding: 20px;
+  background-color: #e8e6e7;
+
+  h1, h2 {
+    margin-top: 0;
+  }
+
+  nav li {
+    list-style: none;
+  }
+}
+
+.primary-text {
+  color: #0F8B8D;
+}
