@@ -1,5 +1,7 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  clear_respond_to
+  respond_to :json
 
   # GET /skills
   # GET /skills.json
@@ -26,28 +28,20 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new(skill_params)
 
-    respond_to do |format|
-      if @skill.save
-        format.html { redirect_to @skill, notice: 'Skill was successfully created.' }
-        format.json { render :show, status: :created, location: @skill }
-      else
-        format.html { render :new }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
-      end
+    if @skill.save
+      render :show, status: :created, location: @skill
+    else
+      render json: @skill.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /skills/1
   # PATCH/PUT /skills/1.json
   def update
-    respond_to do |format|
-      if @skill.update(skill_params)
-        format.html { redirect_to @skill, notice: 'Skill was successfully updated.' }
-        format.json { render :show, status: :ok, location: @skill }
-      else
-        format.html { render :edit }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
-      end
+    if @skill.update(skill_params)
+      render :show, status: :ok, location: @skill
+    else
+      render json: @skill.errors, status: :unprocessable_entity
     end
   end
 
@@ -55,16 +49,15 @@ class SkillsController < ApplicationController
   # DELETE /skills/1.json
   def destroy
     @skill.destroy
-    respond_to do |format|
-      format.html { redirect_to skills_url, notice: 'Skill was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    format.json { head :no_content }
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_skill
       @skill = Skill.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: e.message.to_json, status: :not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
