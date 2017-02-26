@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Opportunity name:</strong>
+  <%= @opportunity.opportunity_name %>
+</p>
+
+<p>
+  <strong>Opportunity desc:</strong>
+  <%= @opportunity.opportunity_desc %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @opportunity.institution %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @opportunity.review %>
+</p>
+
+<p>
+  <strong>Time period:</strong>
+  <%= @opportunity.time_period %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @opportunity.user %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @opportunity.skill %>
+</p>
+
+<%= link_to 'Edit', edit_opportunity_path(@opportunity) %> |
+<%= link_to 'Back', opportunities_path %>
