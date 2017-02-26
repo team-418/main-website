@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'style_guide/index'
+
   resources :institutions
   resources :volunteers
   resources :time_periods

@@ -1,24 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router';
-import FixedLayoutWithSidebar from './fixed_layout_with_sidebar';
 
-class about extends React.Component{
-    constructor(props) {
-     super(props);
-    }
+class signup extends React.Component{
+  constructor(props) {
+    super(props);
+  }
 
-  render() {
+ render() {
     return (
-      <div>
-        <FixedLayoutWithSidebar 
-          leftLinks={[<a href="#">Elements</a>]} 
-          rightLinks={[<a href="#">Sign In Fake</a>]} 
-          mainBodyContent={ <p>Hello!</p>}
-          sidebarContent={ <h3>This is sidebar!</h3>}/>
-      </div>
+      <h3>Test</h3>
     );
   }
 }
 
-export default about;
+export default signup;

@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20170226100601) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "user_name",                              null: false
+    t.string   "user_name"
     t.string   "current_role"
     t.integer  "home_phone"
     t.integer  "cell_phone"
