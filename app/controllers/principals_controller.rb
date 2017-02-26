@@ -26,7 +26,6 @@ class PrincipalsController < ApplicationController
   # POST /principals
   # POST /principals.json
   def create
-    binding.pry
     @principal = Principal.new(principal_params)
 
     if @principal.save

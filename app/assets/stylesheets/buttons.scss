@@ -11,3 +11,40 @@ category: basics
     <btn class='btn btn-danger'>Danger</btn>
 ```
 */
+
+.btn {
+  padding: 20px 32px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.25);
+  border-radius: 3px;
+  font-weight: bold;
+  border: 0;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  transition: all 200ms;
+
+  &.lg {
+    padding: 40px 64px;
+    font-size: 1.5em;
+  }
+
+  &.btn-success {
+    background-color: $brand-accent;
+    &:hover {
+        background-color: darken($brand-accent, 5%);
+    }
+    &:active {
+        background-color: darken($brand-accent, 10%);
+    }
+  }
+
+  &.btn-primary {
+      background-color: $brand-main;
+      &:hover {
+          background-color: darken($brand-main, 5%);
+      }
+      &:active {
+        background-color: darken($brand-main, 10%);
+      }
+  }
+  
+}
