@@ -13,9 +13,13 @@
  *= require_self
  */
 
+@import 'colors';
+@import 'fonts';
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+@import 'typography';
 @import 'buttons';
 @import 'navigation';
 @import 'pages';

@@ -1,6 +1,8 @@
 class PrincipalsController < ApplicationController
   before_action :set_principal, only: [:show, :edit, :update, :destroy]
-
+  clear_respond_to
+  respond_to :json
+  
   # GET /principals
   # GET /principals.json
   def index

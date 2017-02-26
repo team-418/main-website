@@ -1,0 +1,29 @@
+/*doc
+---
+title: Typography
+name: Typography
+category: basics
+---
+```html_example
+    <h1>Heading 1</h2>
+    <h2>Heading 2</h2>
+    <p>Example paragraph text Example paragraph textExample paragraph textExample paragraph text</p>
+```
+*/
+
+
+
+body {
+  font-family:$sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: $body-copy;
+}
+
+.serif {
+  font-family: $serif;
+}
+
+h1 {
+  font-family: $serif;
+}
