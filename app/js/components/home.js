@@ -11,17 +11,6 @@ class home extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    var _this = this;
-
-    axios.get('http://localhost:3000/institutions/1.json')
-      .then(function (response) {
-        _this.setState({institution: response.data});
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   render() {
     return (
