@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+institution_one = Institution.create(institution_name: 'Institution 1', institution_status: 'PENDING')
+institution_two = Institution.create(institution_name: 'Institution 2', institution_status: 'PENDING')
+
+opportunity_one = Opportunity.create(
+  institution: institution_one, 
+  opportunity_name: 'Opportunity One',
+  opportunity_desc: 'Description'
+)
+
+opportunity_two = Opportunity.create(
+  institution: institution_two, 
+  opportunity_name: 'Opportunity Two',
+  opportunity_desc: 'Description 2'
+)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226030315) do
+ActiveRecord::Schema.define(version: 20170226100601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170226030315) do
     t.string   "opportunity_desc"
     t.integer  "institution_id"
     t.integer  "review_id"
-    t.integer  "time_period_id"
     t.integer  "user_id"
     t.integer  "skill_id"
     t.datetime "created_at",                       null: false
@@ -59,7 +58,6 @@ ActiveRecord::Schema.define(version: 20170226030315) do
   add_index "opportunities", ["institution_id"], name: "index_opportunities_on_institution_id", using: :btree
   add_index "opportunities", ["review_id"], name: "index_opportunities_on_review_id", using: :btree
   add_index "opportunities", ["skill_id"], name: "index_opportunities_on_skill_id", using: :btree
-  add_index "opportunities", ["time_period_id"], name: "index_opportunities_on_time_period_id", using: :btree
   add_index "opportunities", ["user_id"], name: "index_opportunities_on_user_id", using: :btree
 
   create_table "principals", force: :cascade do |t|
@@ -107,7 +105,7 @@ ActiveRecord::Schema.define(version: 20170226030315) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "user_name"
+    t.string   "user_name",                              null: false
     t.string   "current_role"
     t.integer  "home_phone"
     t.integer  "cell_phone"
@@ -127,18 +125,20 @@ ActiveRecord::Schema.define(version: 20170226030315) do
     t.boolean  "communication_opt_out"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "user_id"
   end
 
   add_index "volunteers", ["time_period_id"], name: "index_volunteers_on_time_period_id", using: :btree
+  add_index "volunteers", ["user_id"], name: "index_volunteers_on_user_id", using: :btree
 
   add_foreign_key "institutions", "addresses"
   add_foreign_key "opportunities", "institutions"
   add_foreign_key "opportunities", "reviews"
   add_foreign_key "opportunities", "skills"
-  add_foreign_key "opportunities", "time_periods"
   add_foreign_key "opportunities", "users"
   add_foreign_key "principals", "institutions"
   add_foreign_key "principals", "users"
   add_foreign_key "users", "addresses"
   add_foreign_key "volunteers", "time_periods"
+  add_foreign_key "volunteers", "users"
 end
