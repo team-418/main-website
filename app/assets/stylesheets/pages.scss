@@ -52,7 +52,7 @@ category: basics
   }
  
 a:hover{
-  background-color: none;
+  background-color: none !important;
 }
 
 .site-banner-content {
@@ -172,10 +172,11 @@ a.listings {
     list-style: none;
   }
 }
-
-.primary-text {
-  color: #0F8B8D;
+.goals img {
+    height: 150px;
+    margin: 30px auto;
 }
+
 
 /* Footer at bottom of page */
 html {
@@ -184,10 +185,22 @@ html {
 
 body {
   min-height: 100%;
-  padding-bottom: 13rem;
   position: relative;
   margin: 0;
 }
+
+.stat{
+  background-image: url(asset-path('principal.jpg'));
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  p{
+    max-width: 40%;
+    font-size: 1.8em;
+    line-height: 1.5;
+  }
+}
+
 .container {
     padding: 50px 15px;
     width: 1000px;
@@ -195,9 +208,6 @@ body {
 
 .main-footer {
   margin-top: 10px;
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  right: 0;
-  left: 0;
+
 }

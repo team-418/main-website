@@ -45,30 +45,26 @@ class home extends React.Component {
             <h2 className="full-width-max">Our goal at PrincipalsConnect is to help connect urban school principals with retired professionals</h2>
             <p className="full-width-max">When retired business leaders help urban principals with professional services, principals can spend more time on education and teachers and students will thrive.</p>
             <div className="col-md-4">
-                <img className="illustration" />
+                <img className="illustration" src="/assets/principals.png" />
                 <h4>Why urban principals?</h4>
                 <p>They are the most important determinant in a school’s success. Gifted principals attract great teachers and resources that result in high performing students.</p>
             </div>
             <div className="col-md-4">
-                <img className="illustration" />
+                <img className="illustration" src="/assets/adviser.png" />
                 <h4>Why retired professionals?</h4>
                 <p>Retired leaders crave working with a team on strategic, complex projects…but don’t want to be tethered to a schedule.</p>
             </div>
             <div className="col-md-4">
-                <img className="illustration" />
+                <img className="illustration" src="/assets/school.png" />
                 <h4>Why PrincipalsConnect?</h4>
                 <p>Our web site allows retirees to have flexibility in the hours they volunteer and gives principals the ability to select PC Advisers when and where they need them.</p>
             </div>
         </div>
     </section>
-    <section className="stat">
+    <section className="stat brand-main serif">
         <div className="container">
-            <div className="col-md-6 main-color serif">
-                <p>Potential fact or statistic about the concept of PrincipalsConnect or about the cause it serves could go here.</p>
-            </div>
-            <div className="col-md-6 main-color serif">
-                <img src="" className="principal" />
-            </div>
+            <p>Potential fact or statistic about the concept of PrincipalsConnect or about the cause it serves could go here.</p>
+
         </div>
     </section>
     <MainFooter />

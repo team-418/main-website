@@ -6,8 +6,9 @@ class MainFooter extends React.Component {
   render() {
     return (
       <footer className={'main-footer'}>
+        <div className="container">
         <div className={'col-md-4'}>
-          <h1 className={'primary-text'}>PrincipalsConnect</h1>
+          <h2 className={'primary-text'}>PrincipalsConnect</h2>
           <p>Recruits, trains, and supports retired professionals who volunteer with principals of urban schools.</p>
         </div>
         <div className={'col-md-4'}>
@@ -35,6 +36,7 @@ class MainFooter extends React.Component {
             </iframe>
           </p>
 
+        </div>
         </div>
       </footer>
     )
