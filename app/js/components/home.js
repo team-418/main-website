@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {Link} from 'react-router';
+
 import PrimaryNavigation from './primary_navigation';
+import MainFooter from './main_footer';
 
 class home extends React.Component{
   constructor(props) {
@@ -35,6 +37,7 @@ class home extends React.Component{
           </p>
           <p><a>View Opportunity Listings</a></p>
         </section>
+        <MainFooter />
       </div>
     );
   }
