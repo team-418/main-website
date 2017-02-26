@@ -9,7 +9,7 @@ import Faqs from './faqs';
 
 class routes extends React.Component{
     constructor(props) {
-     super(props); 
+     super(props);
     }
 
  render() {

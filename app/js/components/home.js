@@ -14,6 +14,7 @@ class home extends React.Component {
   componentDidMount() {
     var _this = this;
 
+      // resource create
     axios({
         method: 'post',
         url: 'api/institutions.json',
@@ -25,6 +26,7 @@ class home extends React.Component {
         console.log(error);
     });
 
+      // resource get
     axios.get('api/institutions/2.json')
         .then(function (res) {
             console.log(res);
@@ -32,7 +34,25 @@ class home extends React.Component {
         .catch(function (error) {
             console.log(error);
         });
+
+      // user signin
+      axios({
+          method: 'post',
+          url: 'api/users.json',
+          headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+          data: { 'user': {
+              'email': 'testing@email.com',
+              'password': 'password',
+              'password_confirmation': 'password',
+              'user_name': 'test user'
+          }}
+      }).then(function (res) {
+          console.log(res);
+      }).catch(function (error) {
+          console.log(error);
+      });
   }
+
   render() {
     return (
    <div>
