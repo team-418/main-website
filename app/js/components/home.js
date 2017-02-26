@@ -11,7 +11,28 @@ class home extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    var _this = this;
 
+    axios({
+        method: 'post',
+        url: 'api/institutions.json',
+        headers: { "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content') },
+        data: { 'institution': { 'institution_name': '418' } }
+    }).then(function (res) {
+        console.log(res);
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    axios.get('api/institutions/2.json')
+        .then(function (res) {
+            console.log(res);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+  }
   render() {
     return (
    <div>
