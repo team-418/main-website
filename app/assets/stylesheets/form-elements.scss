@@ -1,0 +1,66 @@
+/*doc
+---
+title: Colors
+name: Colors
+category: colors
+---
+```html_example
+    <form>
+    <fieldset>
+    <input type="radio" name="type" value="male" checked> Principal<br>
+    <input type="radio" name="type" value="female"> Volunteer<br>
+      <input type="text" placeholder="First name" name="firstname" value="Mickey"><br>
+      <input type="text" placeholder="Last name" name="lastname" value="Mouse"><br><br>
+      
+      <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+      <input type="checkbox" name="vehicle2" value="Car"> I have a car 
+
+      <select name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+      </select>
+
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>    
+```
+*/
+
+.btn {
+  padding: 20px 32px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.25);
+  border-radius: 3px;
+  font-weight: bold;
+  border: 0;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  transition: all 200ms;
+
+  &.lg {
+    padding: 40px 64px;
+    font-size: 1.5em;
+  }
+
+  &.btn-success {
+    background-color: $brand-accent;
+    &:hover {
+        background-color: darken($brand-accent, 5%);
+    }
+    &:active {
+        background-color: darken($brand-accent, 10%);
+    }
+  }
+
+  &.btn-primary {
+      background-color: $brand-main;
+      &:hover {
+          background-color: darken($brand-main, 5%);
+      }
+      &:active {
+        background-color: darken($brand-main, 10%);
+      }
+  }
+  
+}
