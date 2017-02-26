@@ -1,2 +1,2 @@
-json.extract! volunteer, :id, :time_period_id, :status, :communication_opt_out, :created_at, :updated_at
+json.extract! volunteer, :id, :period_start_date, :period_end_date, :status, :communication_opt_out
 json.url volunteer_url(volunteer, format: :json)

@@ -24,10 +24,10 @@ class VolunteersController < ApplicationController
   # POST /volunteers
   # POST /volunteers.json
   def create
-    @volunteer = Volunteer.new(volunteer_params)
-
+    @volunteer = Volunteer.new(volunteer_params.status, volunteer_params.communication_opt_out)
+    @timeperiod = TimePeriod.new(volunteer_params.period_start_date, volunteer_params.period_end_date)
     respond_to do |format|
-      if @volunteer.save
+      if @volunteer.save && @timeperiod.save
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
         format.json { render :show, status: :created, location: @volunteer }
       else
@@ -42,6 +42,9 @@ class VolunteersController < ApplicationController
   def update
     respond_to do |format|
       if @volunteer.update(volunteer_params)
+        unless volunteer_params.period_start_date.nil || volunteer_params.period_end_date.nil
+          TimePeriod.update(volunteer_params.period_start_date, volunteer_params.period_end_date)
+        end          
         format.html { redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
         format.json { render :show, status: :ok, location: @volunteer }
       else
