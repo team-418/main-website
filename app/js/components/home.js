@@ -1,13 +1,26 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {Link} from 'react-router';
+import axios from 'axios';
 
 import PrimaryNavigation from './primary_navigation';
 import MainFooter from './main_footer';
 
-class home extends React.Component{
+class home extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    var _this = this;
+
+    axios.get('http://localhost:3000/institutions/1.json')
+      .then(function (response) {
+        _this.setState({institution: response.data});
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
@@ -36,6 +49,7 @@ class home extends React.Component{
             <button className="btn btn-success btn-lg">Principal &gt;</button>
           </p>
           <p><a>View Opportunity Listings</a></p>
+          <p>{ this.state ? this.state.institution.institution_name : 'No Institution' }</p>
         </section>
         <MainFooter />
       </div>

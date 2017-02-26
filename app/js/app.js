@@ -6,6 +6,7 @@ import Home from './components/home';
 import MyApp from './my_app';
 import { Provider } from 'react-redux';
 import RouteComponent from './components/routes';
+import axios from 'axios';
 
 import  store from './reducer/appState'
 render(
