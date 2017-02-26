@@ -1,3 +1,5 @@
 class Volunteer < ActiveRecord::Base
-  belongs_to :time_period
+  has_many :time_period
+  has_many :review
+  has_many :skill
 end
