@@ -5,6 +5,7 @@ import MyApp from '../my_app';
 import Home from './home';
 import About from './about';
 import Signup from './signup';
+import Faqs from './faqs';
 
 class routes extends React.Component{
     constructor(props) {
@@ -17,6 +18,7 @@ class routes extends React.Component{
             <Route path='/' component={Home}/>
             <Route path='/about' component={About}/>
             <Route path='/signup' component={Signup}/>
+            <Route path='/faqs' component={Faqs}/>
         </Router>
     );
   }

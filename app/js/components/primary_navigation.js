@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Link } from 'react-router';
+
 class PrimaryNavigation extends React.Component{
   constructor(props) {
     super(props);
@@ -7,7 +9,7 @@ class PrimaryNavigation extends React.Component{
   render() {
     var leftItems = this.props.leftLinks.map(function(item, i) { return <li key={"item" + i}>{item}</li> });
     var rightItems = this.props.rightLinks.map(function(item, i) { return <li key={"item" + i}>{item}</li> });
-    var rightItems2 = this.props.rightLinks2.map(function(item, i) { return <li key={"item" + i}>{item}</li> });
+
     return (
       <nav className={"navbar " + this.props.additionalNavBarClasses.join(" ")} aria-expanded="true">
         <div className="container">
@@ -18,7 +20,7 @@ class PrimaryNavigation extends React.Component{
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <a href="../" className="navbar-brand">PC PrincipalConnect</a>
+          <Link to="/" className={"navbar-brand"}>PC PrincipalConnect</Link>
         </div>
         <nav className="navbar-collapse collapse">
           <ul className="nav navbar-nav">

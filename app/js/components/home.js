@@ -17,8 +17,14 @@ class home extends React.Component {
    <div>
     <div className="site-banner">
         <div className="site-banner-header">
-            <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} leftLinks={[<Link to="/about">About Us</Link>]} rightLinks2={[
-                <Link to="/signup">Signup</Link>]} rightLinks={[<a>Login</a>]} />
+            <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
+            rightLinks={[
+              <Link to="/example_opportunities">Volunteer Opportunities</Link>,
+              <Link to="/about">About Us</Link>,
+              <Link to="/faqs">FAQs</Link>,
+              <Link to="/signup" className={'btn btn-success'}>Sign Up</Link>,
+              <Link to="/signup" className={'btn btn-primary'}>Log In</Link>
+            ]} />
                 <div className="container">
                     <div className="site-banner-content">
                         <div className="site-banner-onboarding text-center">
