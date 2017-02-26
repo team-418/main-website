@@ -12,6 +12,19 @@ class PrincipalsController < ApplicationController
   # GET /principals/1
   # GET /principals/1.json
   def show
+    if @principal
+      render :show, status: :ok, location: @principal
+    else
+      render json: @principal.errors, status: :not_found
+    end
+    # respond_to do |format|
+    #   if @principal
+    #     format.json { render :show, status: :ok, location: @principal }
+    #   else
+    #     format.json { render json: @principal.errors, status: :not_found }
+    #   end
+    # end
+
   end
 
   # POST /principals
@@ -53,6 +66,8 @@ class PrincipalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_principal
       @principal = Principal.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: e.message.to_json, status: :not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
