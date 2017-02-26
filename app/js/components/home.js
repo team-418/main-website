@@ -14,6 +14,26 @@ class home extends React.Component {
     componentDidMount() {
         var _this = this;
 
+        // $.ajax({ url: '/institutions'
+        //          , method: 'POST'
+        //          , headers: { 'X-Transaction': 'POST Example'
+        //                       , 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        //                     }
+        //          , data: { 'institution': { 'institution_name': 'nerdery' }
+        //                  }
+        //        }).success(function (data, y, x) { if (x.status === 201) { location.reload(); }});
+
+        axios({
+            method: 'post',
+            url: 'api/institutions.json',
+            headers: { "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content') },
+            data: { 'institution': { 'institution_name': '418' } }
+        }).then(function (res) {
+            console.log(res);
+        }).catch(function (error) {
+            console.log(error);
+        });
+
         axios.get('api/institutions/2.json')
             .then(function (res) {
                 console.log(res);
