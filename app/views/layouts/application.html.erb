@@ -6,7 +6,6 @@
 <head>
   <title>Website</title>
   <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -17,8 +16,9 @@
   <% if alert %>
     <p class="alert"><%= alert %></p>
   <% end %>
+  <div id="root"></div>
 
-  <%= yield %>
-
+<%= yield %>
+<%= javascript_include_tag 'application' %>
 </body>
 </html>

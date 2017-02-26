@@ -77,3 +77,50 @@ category: basics
     }
   }
 }
+
+.sidebar {
+  @include make-xs-column(3);
+
+  background: #000;
+  position: fixed;
+  margin-top: 50px;
+  height: 100%;
+  position: fixed !important;
+
+  > * {
+    color: #fff;
+  }
+
+  h3 {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .sidebar-navigation ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+
+      > a {
+        color: #fff;
+        width: 100%;
+
+        :hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.body-with-sidebar {
+  @extend .container;
+  @include make-xs-column(9);
+  @include make-xs-column-offset(3);
+  margin-top: 50px;
+}
