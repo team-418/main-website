@@ -1,5 +1,7 @@
 class PrincipalsController < ApplicationController
   before_action :set_principal, only: [:show, :edit, :update, :destroy]
+  clear_respond_to
+  respond_to :json
 
   # GET /principals
   # GET /principals.json
@@ -26,45 +28,36 @@ class PrincipalsController < ApplicationController
   def create
     @principal = Principal.new(principal_params)
 
-    respond_to do |format|
-      if @principal.save
-        format.html { redirect_to @principal, notice: 'Principal was successfully created.' }
-        format.json { render :show, status: :created, location: @principal }
-      else
-        format.html { render :new }
-        format.json { render json: @principal.errors, status: :unprocessable_entity }
-      end
+    if @principal.save
+      render :show, status: :created, location: @principal
+    else
+      render json: @principal.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /principals/1
   # PATCH/PUT /principals/1.json
   def update
-    respond_to do |format|
       if @principal.update(principal_params)
-        format.html { redirect_to @principal, notice: 'Principal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @principal }
+        render :show, status: :ok, location: @principal
       else
-        format.html { render :edit }
-        format.json { render json: @principal.errors, status: :unprocessable_entity }
+        render json: @principal.errors, status: :unprocessable_entity
       end
-    end
   end
 
   # DELETE /principals/1
   # DELETE /principals/1.json
   def destroy
     @principal.destroy
-    respond_to do |format|
-      format.html { redirect_to principals_url, notice: 'Principal was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    format.json { head :no_content }
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_principal
       @principal = Principal.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: e.message.to_json, status: :not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
