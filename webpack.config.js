@@ -5,7 +5,7 @@ module.exports = {
   entry: "./app.js",
 
   output: {
-    filename: "app_bundle.js",
+    filename: "app_bundle.self.js",
     path:__dirname + '/app/assets/javascripts'
   },
   resolve: {

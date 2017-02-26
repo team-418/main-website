@@ -11,11 +11,9 @@ category: basics
 ```
 */
 
-
-
 body {
   font-family:$sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   color: $body-copy;
 }
@@ -26,4 +24,34 @@ body {
 
 h1 {
   font-family: $serif;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h4{
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+  line-height: 1.5;
+}
+
+p, ol, ul, td {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+a {
+  color: $brand-main;
+  cursor: pointer;
+
+  &:visited {
+    color: #666;
+  } 
+
+  &:hover {
+    color: lighten($brand-main, 10%);
+  }
 }

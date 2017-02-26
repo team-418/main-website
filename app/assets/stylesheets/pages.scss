@@ -13,15 +13,28 @@ category: basics
 */
 
 .site-banner {
-  height: 400px;
-  background: linear-gradient(
-      rgba(66, 99, 116, 0.75), 
-      rgba(66, 99, 116, 0.85)
-    ), url(asset-path('school.jpg'));
+  min-height: 400px;
+  background-color: $brand-dark;
+  background: url(asset-path('school.jpg'));
   background-position: center -200px;
   background-size: cover;
-  background-repeat: repeat, no-repeat;
+  background-repeat: no-repeat;
   color: #fff;
+  position: relative;
+  > * {
+    position: relative;
+    z-index: 10;
+  }
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background-color: #173643;
+    opacity: 0.75;
+    z-index: 2;
+  }
 
   .navbar {
     background: none;
@@ -37,42 +50,57 @@ category: basics
       }
     }
   }
+ 
+a:hover{
+  background-color: none !important;
+}
 
-  .site-banner-content {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100%;
+.site-banner-content {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: calc(100% - 70px);
 
-    .site-banner-onboarding {
-      font-size: 2em;
-      line-height: 1em;
-      float: right;
-      width: 50%;
+      .site-banner-onboarding {
+          width: 100%; 
+          text-align: center;
+          max-width: 700px;
+          margin: 0 auto;
 
-      > p {
-        font-size: 1em;
-        line-height: 1em;
-        text-align: right;
+          h1{
+            margin-bottom: 2em;
+          }
+ 
+          > p {
+              font-size: 1em;
+              line-height: 1em;
+              text-align: center;
+              margin-top: 2em;
+          }
       }
-
-      > * {
-        float: right;
-      }
-    }
   }
+}
+
+p.question {
+  text-transform: uppercase;
+    font-size: 1em;
+}
+
+a.listings {
+  color: $brand-accent;
 }
 
 .registration-onboarding {
   text-align: center;
   padding: 10px;
 
-  > {
-    * {
-      margin: 20px auto;
-    }
+  .signup h2, .signup button{
+    display: inline-block;
+    margin-right: 20px;
+  }
 
+  > {
     p {
       font-size: 1.5em;
       line-height: 1em;
@@ -120,6 +148,10 @@ category: basics
   }
 }
 
+.goals h2{
+  max-width: 700px;
+}
+
 .body-with-sidebar {
   @extend .container;
   @include make-xs-column(9);
@@ -129,7 +161,6 @@ category: basics
 
 .main-footer {
   @extend .clearfix;
-
   padding: 20px;
   background-color: #e8e6e7;
 
@@ -141,10 +172,11 @@ category: basics
     list-style: none;
   }
 }
-
-.primary-text {
-  color: #0F8B8D;
+.goals img {
+    height: 150px;
+    margin: 30px auto;
 }
+
 
 /* Footer at bottom of page */
 html {
@@ -153,16 +185,29 @@ html {
 
 body {
   min-height: 100%;
-  padding-bottom: 13rem;
   position: relative;
   margin: 0;
 }
 
+.stat{
+  background-image: url(asset-path('principal.jpg'));
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  p{
+    max-width: 40%;
+    font-size: 1.8em;
+    line-height: 1.5;
+  }
+}
+
+.container {
+    padding: 50px 15px;
+    width: 1000px;
+}
+
 .main-footer {
   margin-top: 10px;
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  right: 0;
-  left: 0;
+
 }
