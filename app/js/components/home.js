@@ -11,6 +11,17 @@ class home extends React.Component {
     super(props);
   }
 
+    componentDidMount() {
+        var _this = this;
+
+        axios.get('api/institutions/2.json')
+            .then(function (res) {
+                console.log(res);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
   render() {
     return (

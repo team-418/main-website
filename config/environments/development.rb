@@ -39,9 +39,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # In development send app_bundle.js to the webpack-dev-server running on 8080
-  config.action_controller.asset_host = Proc.new { |source|
-    if source =~ /app_bundle.self.js$/i
-      "http://localhost:9000"
-    end
-  }
+  # config.action_controller.asset_host = Proc.new { |source|
+  #   if source =~ /app_bundle.self.js$/i
+  #     "http://localhost:9000"
+  #   end
+  # }
 end
