@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import {browserHistory} from 'react-router';
+import {Link} from 'react-router';
+import PrimaryNavigation from './primary_navigation';
 
 class about extends React.Component{
     constructor(props) {
@@ -10,8 +11,8 @@ class about extends React.Component{
   render() {
     return (
       <div>
+        <PrimaryNavigation leftLinks={[<Link to="/about">About Us</Link>]} rightLinks={[<a>Login</a>]} />
         <p>About!</p>
-        <div><button onClick={browserHistory.goBack}>Back</button></div>
       </div>
     );
   }
