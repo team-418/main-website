@@ -1,5 +1,7 @@
 class InstitutionsController < ApplicationController
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
+  clear_respond_to
+  respond_to :json
 
   # GET /institutions
   # GET /institutions.json
@@ -26,28 +28,20 @@ class InstitutionsController < ApplicationController
   def create
     @institution = Institution.new(institution_params)
 
-    respond_to do |format|
-      if @institution.save
-        format.html { redirect_to @institution, notice: 'Institution was successfully created.' }
-        format.json { render :show, status: :created, location: @institution }
-      else
-        format.html { render :new }
-        format.json { render json: @institution.errors, status: :unprocessable_entity }
-      end
+    if @institution.save
+      render :show, status: :created, location: @institution
+    else
+      render json: @institution.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /institutions/1
   # PATCH/PUT /institutions/1.json
   def update
-    respond_to do |format|
-      if @institution.update(institution_params)
-        format.html { redirect_to @institution, notice: 'Institution was successfully updated.' }
-        format.json { render :show, status: :ok, location: @institution }
-      else
-        format.html { render :edit }
-        format.json { render json: @institution.errors, status: :unprocessable_entity }
-      end
+    if @institution.update(institution_params)
+      render :show, status: :ok, location: @institution
+    else
+      render json: @institution.errors, status: :unprocessable_entity
     end
   end
 
@@ -55,16 +49,15 @@ class InstitutionsController < ApplicationController
   # DELETE /institutions/1.json
   def destroy
     @institution.destroy
-    respond_to do |format|
-      format.html { redirect_to institutions_url, notice: 'Institution was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    format.json { head :no_content }
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_institution
       @institution = Institution.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: e.message.to_json, status: :not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
