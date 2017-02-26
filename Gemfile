@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'react-rails', '1.10.0'
 
+# E-mailing
+gem 'sendgrid'
+gem 'gibbon'
+
 # The CMS
 gem 'dotenv-rails', '2.2.0', require: 'dotenv/rails-now'
 
@@ -30,6 +34,9 @@ gem 'devise', '~> 4.2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Generate style guide
+gem 'hologram', '~> 1.3.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -48,5 +55,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 

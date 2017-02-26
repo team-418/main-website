@@ -1,3 +1,79 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*doc
+---
+title: Alert
+name: Alert
+category: basics
+---
+```html_example
+    <div class='alert'>Hello</div>
+```
+*/
+
+.site-banner {
+  height: 400px;
+  background: linear-gradient(
+      rgba(66, 99, 116, 0.75), 
+      rgba(66, 99, 116, 0.85)
+    ), asset_url('teacher-banner.jpg');
+  background-position: center; 
+  color: #fff;
+
+  .navbar {
+    background: none;
+    border: none;
+
+    a, .navbar-nav li a {
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .site-banner-content {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+
+    .site-banner-onboarding {
+      font-size: 2em;
+      line-height: 1em;
+      float: right;
+      width: 50%;
+
+      > p {
+        font-size: 1em;
+        line-height: 1em;
+        text-align: right;
+      }
+
+      > * {
+        float: right;
+      }
+    }
+  }
+}
+
+.registration-onboarding {
+  text-align: center;
+  padding: 10px;
+
+  > {
+    * {
+      margin: 20px auto;
+    }
+
+    p {
+      font-size: 1.5em;
+      line-height: 1em;
+    }
+  }
+}
