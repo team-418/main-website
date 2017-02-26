@@ -1,0 +1,24 @@
+version: '2'
+services:
+  pg:
+    image: postgres:9.6.1
+    ports:
+      - '5432:5432'
+    container_name: pg418
+    environment:
+      POSTGRES_PASSWORD: password
+  web:
+    image: josiah14/heroku-ruby418
+    command: /bin/zsh
+    tty: true
+    stdin_open: true
+    links:
+      - pg 
+    volumes:
+      - .:/app/user/website
+    ports:
+      - "3000:3000"
+    depends_on:
+      - pg
+    container_name: ruby418
+    
