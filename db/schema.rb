@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225235237) do
+ActiveRecord::Schema.define(version: 20170226045610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,15 +107,17 @@ ActiveRecord::Schema.define(version: 20170225235237) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.string   "user_name"
+    t.string   "user_name",                              null: false
     t.string   "current_role"
     t.integer  "home_phone"
     t.integer  "cell_phone"
     t.boolean  "background_check_complete"
     t.datetime "last_background_check"
     t.text     "roles",                     default: [],              array: true
+    t.integer  "address_id"
   end
 
+  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
@@ -137,5 +139,6 @@ ActiveRecord::Schema.define(version: 20170225235237) do
   add_foreign_key "opportunities", "users"
   add_foreign_key "principals", "institutions"
   add_foreign_key "principals", "users"
+  add_foreign_key "users", "addresses"
   add_foreign_key "volunteers", "time_periods"
 end
