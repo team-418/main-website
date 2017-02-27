@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Link } from 'react-router';
 
 class PrimaryNavigation extends React.Component{
   constructor(props) {
