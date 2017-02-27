@@ -61,7 +61,7 @@ class home extends React.Component {
             <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
             rightLinks={[
               <Link to="/example_opportunities">Volunteer Opportunities</Link>,
-              <Link to="/about">About Us</Link>,
+              <a href="#">About Us</a>,
               <Link to="/faqs">FAQs</Link>,
               <Link to="/signup" className={'btn btn-success'}>Sign Up</Link>,
               <Link to="/signup" className={'btn btn-primary'}>Log In</Link>

@@ -159,6 +159,13 @@ a.listings {
   @extend .clearfix;
   padding: 20px;
   background-color: #e8e6e7;
+  width: 100%;
+
+  /* Footer on bottom of screen*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   h1, h2 {
     margin-top: 0;
@@ -183,6 +190,7 @@ body {
   min-height: 100%;
   position: relative;
   margin: 0;
+  padding-bottom: 27rem;
 }
 
 .stat{
@@ -200,8 +208,4 @@ body {
 .container {
     padding: 50px 15px;
     width: 1000px;
-}
-
-.main-footer {
-  width: 100%;
 }
