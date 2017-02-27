@@ -2,15 +2,23 @@ body {
   background-color: #fff;
 }
 
-p, ol, ul, td {
-  font-size: 13px;
-  line-height: 18px;
-}
-
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
+}
+
+a {
+  color: $brand-main;
+  cursor: pointer;
+
+  &:visited {
+    color: #666;
+  } 
+
+  &:hover {
+    color: lighten($brand-main, 10%);
+  }
 }
 
 div {
@@ -24,7 +32,7 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
+  padding: 2px; 
   background-color: red;
   display: table;
 }
