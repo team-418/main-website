@@ -14,8 +14,8 @@ class PrimaryNavigation extends React.Component{
       <nav className={"navbar " + this.props.additionalNavBarClasses.join(" ")} aria-expanded="true">
         <div className="container">
         <div className="navbar-header">
-          <button aria-controls="bs-navbar" aria-expanded="true" className="navbar-toggle" data-target="#documentation-navbar" data-toggle="collapse" type="button">
-            <span className="sr-only">Toggle navigation</span>
+          <button aria-controls="bs-navbar" aria-expanded="true" className="navbar-toggle" data-target="#documentation-navbar" data-toggle="collapse" type="button"> 
+            <span className="sr-only">Toggle navigation</span> 
             <span className="icon-bar" />
             <span className="icon-bar" />
             <span className="icon-bar" />

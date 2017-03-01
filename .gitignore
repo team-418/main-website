@@ -210,6 +210,9 @@ config/initializers/secret_token.rb
 *.bowerrc
 bower.json
 
+# Ignore app public/assets pushed
+/public/assets/
+
 # Ignore pow environment settings
 .powenv
 

@@ -11,6 +11,47 @@ class home extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    var _this = this;
+
+      // resource create
+    axios({
+        method: 'post',
+        url: 'api/institutions.json',
+        headers: { "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content') },
+        data: { 'institution': { 'institution_name': '418' } }
+    }).then(function (res) {
+        console.log(res);
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+      // resource get
+    axios.get('api/institutions/2.json')
+        .then(function (res) {
+            console.log(res);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+      // user signin
+      axios({
+          method: 'post',
+          url: 'api/users.json',
+          headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+          data: { 'user': {
+              'email': 'testing@email.com',
+              'password': 'password',
+              'password_confirmation': 'password',
+              'user_name': 'test user'
+          }}
+      }).then(function (res) {
+          console.log(res);
+      }).catch(function (error) {
+          console.log(error);
+      });
+  }
 
   render() {
     return (
@@ -20,7 +61,7 @@ class home extends React.Component {
             <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
             rightLinks={[
               <Link to="/example_opportunities">Volunteer Opportunities</Link>,
-              <Link to="/about">About Us</Link>,
+              <a href="#">About Us</a>,
               <Link to="/faqs">FAQs</Link>,
               <Link to="/signup" className={'btn btn-success'}>Sign Up</Link>,
               <Link to="/signup" className={'btn btn-primary'}>Log In</Link>
