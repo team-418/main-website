@@ -9,7 +9,7 @@ class PrimaryNavigation extends React.Component{
   render() {
     var leftItems = this.props.leftLinks.map(function(item, i) { return <li key={"item" + i}>{item}</li> });
     var rightItems = this.props.rightLinks.map(function(item, i) { return <li key={"item" + i}>{item}</li> });
-    var rightItems2 = this.props.rightLinks2.map(function(item, i) { return <li key={"item" + i}>{item}</li> });
+
     return (
       <nav className={"navbar " + this.props.additionalNavBarClasses.join(" ")} aria-expanded="true">
         <div className="container">
