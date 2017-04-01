@@ -111,7 +111,7 @@ class home extends React.Component {
           </section>
           <section className="stat brand-main serif">
             <div className="container">
-              <p>Potential fact or statistic about the concept of PrincipalsConnect or about the cause it serves could go here.</p>
+              <p className="col-sm-6">Potential fact or statistic about the concept of PrincipalsConnect or about the cause it serves could go here.</p>
             </div>
           </section>
         </div>

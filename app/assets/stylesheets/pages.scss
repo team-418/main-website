@@ -110,6 +110,12 @@ a.listings {
   .signup h2, .signup button{
     display: inline-block;
     margin-right: 20px;
+
+    @media (max-width: $screen-sm-min) {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
   }
 
   > {
@@ -173,7 +179,9 @@ a.listings {
 
 .main-footer {
   @extend .clearfix;
-  padding: 20px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #e8e6e7;
   width: 100%;
 
@@ -181,8 +189,14 @@ a.listings {
     margin-top: 0;
   }
 
-  nav li {
-    list-style: none;
+  nav ul {
+    li {
+      list-style: none;
+    }
+
+    @media(max-width: $screen-md-min) {
+      padding: 0;
+    }
   }
 }
 .goals img {
@@ -195,9 +209,25 @@ a.listings {
   background-position: top right;
   background-repeat: no-repeat;
   background-size: 50% auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
   p{
-    max-width: 40%;
-    font-size: 1.8em;
-    line-height: 1.5;
+    font-size: 2em;
+  }
+
+  @media(max-width: $screen-md-min) {
+    p {
+      font-size: 1.5em;
+    }
+  }
+
+  @media(max-width: $screen-sm-min) {
+    background-image: none;
+
+    p {
+      font-size: 1em;
+    }
   }
 }
+
