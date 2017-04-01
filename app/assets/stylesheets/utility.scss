@@ -11,21 +11,6 @@ category: colors
 ```
 */
 
-$brand-main: #1FABC1; /* turquoise */
-$brand-dark: #173643; /* navy */
-$brand-accent: #DFB621; /* yellow */
-$brand-white: #F3FFFF; 
-
-$cat-color: #88BE5A; /* green */
-$school-color: #E6B621; /* yellow */
-$border-light: #BFBDC1; /* med gray */
-$border-dark: #979797; /* dark gray */
-
-$form-elem: #F3F3F3; /* light gray */
-$form-elem-complete: #FCFCFC; /* lighter gray */
-
-$body-copy: #393E41;
-
 div, section{
   &.brand-dark {
     background-color: $brand-dark;
@@ -37,11 +22,6 @@ div, section{
   }
 }
 
-.primary-text { 
+.primary-text {
   color: $brand-main;
-}
-
-.full-width-max{
-    max-width: 700px;
-    margin: 20px auto 10px;
 }
