@@ -1,14 +1,12 @@
 .navbar.navbar-primary {
   .navbar-brand {
     padding: 0;
+    fill: $brand-white;
+    font-weight: normal;
   }
 
   border-radius: 0;
   .container {
       padding: 30px;
   }
-}
-
-.navbar-nav li {
-  margin-left: 10px;
 }

@@ -13,13 +13,13 @@ category: basics
 */
 
 .site-banner {
-  min-height: 400px;
+  min-height: 518px;
   background-color: $brand-dark;
-  background: url(asset-path('school.jpg'));
-  background-position: center -200px;
+  background: url(asset-path('school2.jpg'));
+  background-position: center 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
+  color: $brand-white;
   position: relative;
   > * {
     position: relative;
@@ -31,8 +31,8 @@ category: basics
     height: 100%;
     top: 0;
     position: absolute;
-    background-color: #173643;
-    opacity: 0.75;
+    background-color: $brand-dark-overlay;
+    opacity: 0.8;
     z-index: 2;
   }
 
@@ -40,21 +40,28 @@ category: basics
     background: none;
     border: none;
 
-    a, .navbar-nav li a {
-      color: #fff;
-      fill: #fff;
+    .btn {
+      padding: 15px 30px;
+    }
 
-      &:hover {
-        color: #fff;
-        text-decoration: underline;
-        cursor: pointer;
+    .navbar-nav > li {
+      a {
+        font-weight: 700;
+        color: $brand-white;
+      }
+      .btn-success {
+        @include button-brand-accent;
+      }
+      .btn-primary {
+        @include button-brand-primary;
+      }
+      &:nth-last-of-type(-n+2) {
+        margin: 0 0 0 15px;
       }
     }
+
+
   }
- 
-a:hover{
-  background-color: none !important;
-}
 
 .site-banner-content {
       padding: 20px;
@@ -64,15 +71,15 @@ a:hover{
       height: calc(100% - 70px);
 
       .site-banner-onboarding {
-          width: 100%; 
+          width: 100%;
           text-align: center;
-          max-width: 700px;
+          max-width: 850px;
           margin: 0 auto;
 
           h1{
             margin-bottom: 2em;
           }
- 
+
           > p {
               font-size: 1em;
               line-height: 1em;
@@ -94,7 +101,11 @@ a.listings {
 
 .registration-onboarding {
   text-align: center;
-  padding: 10px;
+  padding: 60px 0;
+
+  h2 {
+    margin: 0 0 30px;
+  }
 
   .signup h2, .signup button{
     display: inline-block;
@@ -119,7 +130,7 @@ a.listings {
   position: fixed !important;
 
   > * {
-    color: #fff;
+    color: $brand-white;
   }
 
   h3 {
@@ -138,7 +149,7 @@ a.listings {
       box-sizing: border-box;
 
       > a {
-        color: #fff;
+        color: $brand-white;
         width: 100%;
 
         :hover {
@@ -190,4 +201,3 @@ a.listings {
     line-height: 1.5;
   }
 }
-
