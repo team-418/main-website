@@ -59,7 +59,7 @@ class home extends React.Component {
         <div className="main-content">
           <div className="site-banner">
             <div className="site-banner-header">
-              <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
+              <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]}
                 rightLinks={[
                   <Link to="/example_opportunities">Volunteer Opportunities</Link>,
                   <a href="#">About Us</a>,
@@ -70,7 +70,7 @@ class home extends React.Component {
               <div className="container">
                 <div className="site-banner-content">
                   <div className="site-banner-onboarding text-center">
-                    <h1 className="full-width-max">Connecting urban school principals with retired professionals.</h1>
+                    <h1>Connecting urban school principals with retired professionals.</h1>
                     <p className="question">Volunteering as a Advisor?</p>
                     <a className="listings">View Opportunities Near You</a>
                   </div>
@@ -90,8 +90,8 @@ class home extends React.Component {
           </section>
           <section className="goals text-center">
             <div className="container">
-              <h2 className="full-width-max">Our goal at PrincipalsConnect is to help connect urban school principals with retired professionals</h2>
-              <p className="full-width-max">When retired business leaders help urban principals with professional services, principals can spend more time on education and teachers and students will thrive.</p>
+              <h2>Our goal at PrincipalsConnect is to help connect urban school principals with retired professionals</h2>
+              <p>When retired business leaders help urban principals with professional services, principals can spend more time on education and teachers and students will thrive.</p>
               <div className="col-md-4">
                 <img className="illustration" src="/assets/principals.png" />
                 <h4>Why urban principals?</h4>
