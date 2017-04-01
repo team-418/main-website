@@ -1,0 +1,21 @@
+@mixin button-brand-primary {
+  color: $brand-white;
+  background-color: $brand-main;
+  &:hover {
+    background-color: #0E7F81;
+  }
+  &:active {
+    background-color: #249597;
+  }
+}
+
+@mixin button-brand-accent {
+  color: $brand-dark;
+  background-color: $brand-accent;
+  &:hover {
+    background-color: #D8B125;
+  }
+  &:active {
+    background-color: #EDC228;
+  }
+}
