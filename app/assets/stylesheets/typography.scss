@@ -24,6 +24,8 @@ body {
 
 h1 {
   font-family: $serif;
+  font-size: 48px;
+  font-weight: 700;
 }
 
 h2 {
@@ -49,7 +51,7 @@ a {
 
   &:visited {
     color: #666;
-  } 
+  }
 
   &:hover {
     color: lighten($brand-main, 10%);
