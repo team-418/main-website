@@ -21,16 +21,16 @@ class PrimaryNavigation extends React.Component{
             <span className="icon-bar" />
           </button>
           <Link to="/" className={"navbar-brand"}>
-            <svg viewBox="0 0 476.5 247.8" height="4em">
-              <text fontFamily="ArialMT" fontSize="60" transform="matrix(1 0 0 1 152.6816 97.2588)">Principals</text>
-              <text fontFamily="ArialMT" fontSize="60" transform="matrix(1 0 0 1 152.6816 169.2588)"> Connect</text>
-              <text fontFamily="ArialMT" fontSize="24" transform="matrix(1 0 0 1 142.9989 200.2056)">Serving urban school principals</text>
+            <svg viewBox="0 0 476.5 247.8" height="5em">
+              <text fontFamily="ArialMT" fontSize="60" transform="matrix(1 0 0 1 137.3443 68.3159)">Principals</text>
+              <text fontFamily="ArialMT" fontSize="60" transform="matrix(1 0 0 1 137.3443 140.3159)"> Connect</text>
+              <text fontFamily="ArialMT" fontSize="24" transform="matrix(1 0 0 1 127.6616 171.2627)">Serving urban school principals</text>
               <g>
-                <text fontFamily="ArialMT" fontSize="156.6323" transform="matrix(1 0 0 1 35.9897 189.0288)">C</text>
-                <text fontFamily="ArialMT" fontSize="209.4883" transform="matrix(1 0 0 1 -6.103516e-05 179.7734)">P</text>
-                <polyline fontFamily="ArialMT" points="144.3,124 114.6,116.8 151.7,93.9 "/>
-                <path d="M102.8,87.9c0,0-1.9-4.9-0.9-7.4c0.8-1.9,5.4-4.5,5.4-4.5s5.9,0.6,10.4,2.7c10.6,4.8,16.1,13.7,16.1,13.7
-                  l-1.7,8.8l-8,3.5c0,0-3.9-8.1-9.4-11.6C108.2,88.9,102.8,87.9,102.8,87.9z"/>
+                <text fontFamily="ArialMT" fontSize="156.6323" transform="matrix(1 0 0 1 20.6524 160.0859)">C</text>
+                <text fontFamily="ArialMT" fontSize="209.4883" transform="matrix(1 0 0 1 -15.3374 150.8305)">P</text>
+                <polygon points="129,95.1 99.3,87.9 136.3,64.9  "/>
+                <path d="M87.5,59c0,0-1.9-4.9-0.9-7.4c0.8-1.9,5.4-4.5,5.4-4.5s5.9,0.6,10.4,2.7c10.6,4.8,16.1,13.7,16.1,13.7l-1.7,8.8l-8,3.5
+                  c0,0-3.9-8.1-9.4-11.6C92.8,59.9,87.5,59,87.5,59z"/>
               </g>
             </svg>
           </Link>
