@@ -12,8 +12,9 @@ class ExampleOpportunities extends React.Component{
 
   render() {
     return (
-      <div>
-        <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
+      <div className="site-wrapper">
+        <div className="main-content">
+          <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
             rightLinks={[
               <Link to="/example_opportunities">Volunteer Opportunities</Link>,
               <a href="#">About Us</a>,
@@ -21,7 +22,6 @@ class ExampleOpportunities extends React.Component{
               <Link to="/signup" className={'btn btn-success'}>Sign Up</Link>,
               <Link to="/signup" className={'btn btn-primary'}>Log In</Link>
             ]} />
-        <div className={"container"}>
         </div>
         <MainFooter />
       </div>

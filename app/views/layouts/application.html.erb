@@ -10,17 +10,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if notice %>
-  <p class="notice"><%= notice %></p>
-  <% end %>
-
-  <% if alert %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
   <div id="root"></div>
-
-<%= yield %>
-<div id="fb-root"></div>
+  <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
