@@ -42,6 +42,7 @@ category: basics
 
     a, .navbar-nav li a {
       color: #fff;
+      fill: #fff;
 
       &:hover {
         color: #fff;
@@ -209,7 +210,3 @@ body {
   }
 }
 
-.container {
-    padding: 50px 15px;
-    width: 1000px;
-}
