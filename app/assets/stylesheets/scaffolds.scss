@@ -12,20 +12,6 @@ body {
   font-kerning: normal;
 }
 
-#root {
-  height: 100%;
-}
-
-.site-wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1;
-}
-
 pre {
   background-color: #eee;
   padding: 10px;
@@ -84,4 +70,46 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+/* These styles allow us to have equal column sidebar and content area */
+
+#root {
+  height: 100%;
+}
+
+.site-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-primary {
+  flex: none;
+}
+
+.main-content {
+  display: flex;
+  flex: 1 0 auto; /* 2 */
+  flex-direction: column;
+}
+
+.sidebar-wrapper {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+  margin-top: -20px;
+}
+
+.sidebar {
+  background: $brand-white;
+  padding: 10px;
+  border-right: #cbcacd solid 1px;
+}
+
+.content {
+  flex: 1;
+  background: #f8f8f8;
+  padding: 10px;
 }

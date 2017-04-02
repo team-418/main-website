@@ -130,46 +130,6 @@ a.listings {
   }
 }
 
-.sidebar {
-  @include make-xs-column(3);
-
-  background: #000;
-  position: fixed;
-  margin-top: 50px;
-  height: 100%;
-  position: fixed !important;
-
-  > * {
-    color: $brand-white;
-  }
-
-  h3 {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-  }
-
-  .sidebar-navigation ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-
-      > a {
-        color: $brand-white;
-        width: 100%;
-
-        :hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-}
-
 .goals h2{
   max-width: 700px;
 }

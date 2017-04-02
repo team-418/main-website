@@ -5,7 +5,26 @@
   }
 
   border-radius: 0;
+
   .container {
-      padding: 30px;
+    padding: 30px;
+  }
+}
+
+.navbar-admin-panel {
+  background: $brand-dark;
+  border: none;
+
+  .navbar-header .navbar-brand {
+    fill: $brand-white;
+  }
+
+  .navbar-nav > li > a {
+    color: $brand-white;
+
+    &:hover {
+      color: $brand-white;
+      text-decoration: underline;
+    }
   }
 }

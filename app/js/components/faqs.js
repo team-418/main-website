@@ -66,15 +66,15 @@ class Faqs extends React.Component{
 
     return (
       <div className="site-wrapper">
+        <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
+          rightLinks={[
+            <Link to="/example_opportunities">Volunteer Opportunities</Link>,
+            <a href="#">About Us</a>,
+            <Link to="/faqs">FAQs</Link>,
+            <Link to="/signup" className={'btn btn-success'}>Sign Up</Link>,
+            <Link to="/signup" className={'btn btn-primary'}>Log In</Link>
+          ]} />
         <div className="main-content">
-          <PrimaryNavigation additionalNavBarClasses={[ "navbar-primary", "navbar-default", "navbar-collapse"]} 
-              rightLinks={[
-                <Link to="/example_opportunities">Volunteer Opportunities</Link>,
-                <a href="#">About Us</a>,
-                <Link to="/faqs">FAQs</Link>,
-                <Link to="/signup" className={'btn btn-success'}>Sign Up</Link>,
-                <Link to="/signup" className={'btn btn-primary'}>Log In</Link>
-              ]} />
           <div className={"container"}>
             <div className="panel-group" id="faq-accordion" role="tablist" aria-multiselectable="true">
               {questionElements}
