@@ -21,7 +21,7 @@ class routes extends React.Component{
             <Route path='/about' component={About}/>
             <Route path='/signup' component={Signup}/>
             <Route path='/faqs' component={Faqs}/>
-            <Route path='/example_opportunities' component={SidebarView}/>
+            <Route path='/example_opportunities' component={ExampleOpportunities}/>
         </Router>
     );
   }

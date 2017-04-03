@@ -3,12 +3,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import HtmlToReact from 'html-to-react'
 
-import FixedLayoutWithSidebar from './components/fixed_layout_with_sidebar';
+import ApplicationLayout from './components/application_layout';
 
 var htmlToReactParser = new HtmlToReact.Parser(React);
 
 render(
-  <FixedLayoutWithSidebar 
+  <ApplicationLayout 
     leftLinks={[<a href="#">Elements</a>]} 
     rightLinks={[<a href="#">Sign In Fake</a>]} 
     sidebarContent={htmlToReactParser.parse(document.getElementById('navigational-links').innerHTML)}
