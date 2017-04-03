@@ -71,7 +71,7 @@ class home extends React.Component {
                 <div className="site-banner-content">
                   <div className="site-banner-onboarding text-center">
                     <h1>Connecting urban school principals with retired professionals.</h1>
-                    <p className="question">Volunteering as a Advisor?</p>
+                    <h4 className="question">Volunteering as an Advisor?</h4>
                     <a className="listings">View Opportunities Near You</a>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ class home extends React.Component {
             <div className="container">
               <h2>Sign up to start connecting</h2>
               <div className="signup">
-                <h2>I am a</h2>
+                <h4>I am a</h4>
                 <Link to="/signup"><button className="btn btn-success btn-lg">Volunteer &gt;</button></Link>
                 <button className="btn btn-success btn-lg">Principal &gt;</button>
               </div>
@@ -91,7 +91,6 @@ class home extends React.Component {
           <section className="goals text-center">
             <div className="container">
               <h2>Our goal at PrincipalsConnect is to help connect urban school principals with retired professionals</h2>
-              <p>When retired business leaders help urban principals with professional services, principals can spend more time on education and teachers and students will thrive.</p>
               <div className="col-md-4">
                 <img className="illustration" src="/assets/principals.png" />
                 <h4>Why urban principals?</h4>
@@ -107,11 +106,12 @@ class home extends React.Component {
                 <h4>Why PrincipalsConnect?</h4>
                 <p>Our web site allows retirees to have flexibility in the hours they volunteer and gives principals the ability to select PC Advisers when and where they need them.</p>
               </div>
+              <h4>When retired business leaders help urban principals with professional services, principals can spend more time on education and teachers and students will thrive.</h4>
             </div>
           </section>
           <section className="stat brand-main serif">
             <div className="container">
-              <p className="col-sm-6">Potential fact or statistic about the concept of PrincipalsConnect or about the cause it serves could go here.</p>
+              <p className="col-sm-5">Potential fact or statistic about the concept of PrincipalsConnect or about the cause it serves could go here.</p>
             </div>
           </section>
         </div>
