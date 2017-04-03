@@ -12,14 +12,17 @@ category: basics
 */
 
 body {
-  font-family:$sans-serif;
-  font-size: 16px;
+  font-family: $sans-serif;
   line-height: 1.5;
   color: $body-copy;
 }
 
 .serif {
   font-family: $serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+  line-height: 1.5;
 }
 
 h1 {
@@ -29,31 +32,16 @@ h1 {
 }
 
 h2 {
-    font-size: 1.4em;
-}
-
-h4{
+  font-size: 24px;
   font-weight: 600;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
-  line-height: 1.5;
+h4 {
+  font-size: 18px;
+  font-weight: normal;
 }
 
 p, ol, ul, td {
   font-size: 1em;
   line-height: 1.5;
-}
-
-a {
-  color: $brand-main;
-  cursor: pointer;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: lighten($brand-main, 10%);
-  }
 }
