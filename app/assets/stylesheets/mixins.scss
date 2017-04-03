@@ -2,6 +2,7 @@
   color: $brand-white;
   background-color: $brand-main;
   &:hover {
+    color: $brand-white;
     background-color: #0E7F81;
   }
   &:active {
@@ -13,6 +14,7 @@
   color: $brand-dark;
   background-color: $brand-accent;
   &:hover {
+    color: $brand-dark;
     background-color: #D8B125;
   }
   &:active {
