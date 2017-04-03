@@ -1,13 +1,46 @@
 .navbar.navbar-primary {
-  .navbar-brand {
-    padding: 0;
-    font-weight: normal;
-  }
-
+  background-color: $brand-dark;
   border-radius: 0;
 
+  .btn {
+    padding: 15px;
+    text-transform: capitalize;
+  }
+
+  .navbar-nav > li {
+    a {
+      font-weight: 700;
+      color: $brand-white;
+      &:hover {
+        color: $brand-accent;
+      }
+    }
+
+    &:nth-last-of-type(-n+2) {
+      margin: 0;
+      .btn-success,
+      .btn-primary {
+        box-shadow: none;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .navbar-brand {
+    padding: 0;
+    fill: $brand-white;
+    font-weight: normal;
+
+    svg {
+      height: 75px;
+      > text:last-of-type {
+        display: none;
+      }
+    }
+  }
+
   .container {
-    padding: 30px;
+    padding: 15px 30px;
   }
 }
 
