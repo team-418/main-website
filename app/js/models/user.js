@@ -1,20 +1,26 @@
 class User {
-  create(email, password, password_confirmation, first_name, last_name) {
+  /*
+    {
+    'email': 'testing@email.com',
+    'password': 'password',
+    'password_confirmation': 'password',
+    'first_name': 'test user',
+    'last_name': 'test user',
+    'role': 'advisor'
+    }
+   */
+  create(user_attributes, success, failure) {
+    if (!_validate_create_user_attributes(user_attributes)) {
+      console.err('Required attributes were missing, skip requesting user creation to server.');
+      return;
+    }
+
     axios({
       method: 'post',
       url: 'api/users.json',
       headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
-      data: { 'user': {
-              'email': 'testing@email.com',
-              'password': 'password',
-              'password_confirmation': 'password',
-              'user_name': 'test user'
-            }}
-    }).then(function (res) {
-      console.log(res);
-    }).catch(function (error) {
-      console.log(error);
-    });
+      data: { 'user': user_attributes }
+    }).then(success).catch(failure);
   }
 
   /******************************************************************************
@@ -46,4 +52,21 @@ class User {
   edit(email, password, user_attributes) {
     // TODO
   }
+
+  // Private helper functions
+  _validate_create_user_attributes(user_attributes) {
+    required_attrs = [ 'email'
+                       , 'password'
+                       , 'password_confirmation'
+                       , 'first_name'
+                       , 'last_name'
+                       , 'role'
+                     ];
+    return required_attrs.reduce( (acc, attr) => {
+      var contains_attr = user_attributes[attr];
+      if (!contains_attr) { console.err('Required attribute missing for sign-up: ' + attr); }
+      return contains_attr && acc;
+    }, true);
+  }
+
 }
