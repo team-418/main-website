@@ -68,3 +68,25 @@ category: colors
     }
   }
 }
+
+.signup-form-boolean {
+  display: inline-flex;
+  padding: 10px;
+  background: $form-elem;
+  border: $border-dark solid 1px;
+  color: #000;
+
+  + .signup-form-boolean {
+    margin-left: 5px;
+  }
+
+  .signup-form-boolean-description {
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  &.active {
+    background: $brand-main;
+    color: #fff;
+  }
+}
