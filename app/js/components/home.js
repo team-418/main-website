@@ -12,7 +12,7 @@ class home extends React.Component {
   }
 
   componentDidMount() {
-    var _this = this;
+    var _this = this; // access the react component as '_this' so that it can be accessed from within callbacks like axios.get, for instance
 
       // resource create
     axios({
@@ -35,22 +35,6 @@ class home extends React.Component {
             console.log(error);
         });
 
-      // user signin
-      axios({
-          method: 'post',
-          url: 'api/users.json',
-          headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
-          data: { 'user': {
-              'email': 'testing@email.com',
-              'password': 'password',
-              'password_confirmation': 'password',
-              'user_name': 'test user'
-          }}
-      }).then(function (res) {
-          console.log(res);
-      }).catch(function (error) {
-          console.log(error);
-      });
   }
 
   render() {
