@@ -1,17 +1,28 @@
+import axios from 'axios';
+
+import Util from './util';
+
 class User {
-  /*
-    {
-    'email': 'testing@email.com',
-    'password': 'password',
-    'password_confirmation': 'password',
-    'first_name': 'test user',
-    'last_name': 'test user',
-    'role': 'advisor'
-    }
-   */
-  create(user_attributes, success, failure) {
-    if (!_validate_create_user_attributes(user_attributes)) {
-      console.err('Required attributes were missing, skip requesting user creation to server.');
+  /******************************************************************************
+   * Create a new user (synonymous with Sign-up).
+   *
+   * Parameters:
+   *   user_attributes: A hash containing all of the new user attributes.
+   *     *See _validate_create_user_attributes for the required attributes*
+   *     e.g. of a user_attributes hash.
+   *     { 'email': 'testing@email.com'
+   *     , 'password': 'password'
+   *     , 'password_confirmation': 'password'
+   *     , 'first_name': 'test user'
+   *     , 'last_name': 'test user'
+   *     , 'role': 'advisor'
+   *     }
+   *  success: The callback to execute if the server response is a success.
+   *  failure: The callbock to execute if the server response is a failure.
+   *****************************************************************************/
+  static create(user_attributes, success, failure) {
+    if (!User._validate_create_user_attributes(user_attributes)) {
+      console.error('Required attributes were missing, skip requesting user creation to server.');
       return;
     }
 
@@ -29,7 +40,7 @@ class User {
    * Parameters:
    *   email: The e-mail string of the user to delete.
    *****************************************************************************/
-  delete(email) {
+  static delete(email) {
     // TODO
   }
 
@@ -46,27 +57,34 @@ class User {
    *   user_attributes: A hash containing the User attributes to update.
    *     e.g. { 'password': 'new_p@ssw0rd'
    *          , 'password_confirmation': 'new_p@ssw0rd'
-              , 'last_name': 'Smith'
+   *          , 'last_name': 'Smith'
    *          }
    *****************************************************************************/
-  edit(email, password, user_attributes) {
-    // TODO
+  static edit(email, password, user_attributes) {
+    if (!User._validate_edit_user_attributes(user_attributes)) {
+      console.error('Required attributes were missing, skip requesting user creation to server.');
+      return;
+    }
   }
 
-  // Private helper functions
-  _validate_create_user_attributes(user_attributes) {
-    required_attrs = [ 'email'
-                       , 'password'
-                       , 'password_confirmation'
-                       , 'first_name'
-                       , 'last_name'
-                       , 'role'
-                     ];
-    return required_attrs.reduce( (acc, attr) => {
-      var contains_attr = user_attributes[attr];
-      if (!contains_attr) { console.err('Required attribute missing for sign-up: ' + attr); }
-      return contains_attr && acc;
-    }, true);
+  // Private helper functions and properties
+
+  static get _required_user_attributes() { return ['email' , 'password']; }
+
+  static _validate_edit_user_attributes(user_attributes) {
+    var required_attrs = User._required_user_attributes;
+    return Util.validate_axios_params(required_attrs, user_attributes);
+  }
+
+  static _validate_create_user_attributes(user_attributes) {
+    var required_attrs = [ 'password_confirmation'
+                         , 'first_name'
+                         , 'last_name'
+                         , 'role'
+                         ];
+    required_attrs.push.apply(required_attrs, User._required_user_attributes);
+    return Util.validate_axios_params(required_attrs, user_attributes);
   }
 
 }
+export default User;
