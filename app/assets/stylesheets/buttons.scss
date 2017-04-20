@@ -22,6 +22,11 @@ category: basics
   text-transform: uppercase;
   transition: all 200ms;
 
+  &.sm {
+    padding: 10px;
+    font-size: 1em;
+  }
+
   &.lg {
     padding: 40px 64px;
     font-size: 1.5em;

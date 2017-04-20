@@ -36,8 +36,6 @@ category: colors
 }
 
 .signup-form {
-  @extend .row;
-
   text-align: center;
 
   h1 {
@@ -69,15 +67,47 @@ category: colors
   }
 }
 
+.signup-boolean-grouping {
+  display: flex;
+
+  @media (max-width: $screen-sm-min) {
+    flex-direction: column;
+  }
+}
+
 .signup-form-boolean {
   display: inline-flex;
-  padding: 10px;
-  background: $form-elem;
-  border: $border-dark solid 1px;
+  flex-grow: 1;
+  padding: 20px;
+  border: $brand-dark solid 1px;
   color: #000;
+  text-align: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
 
-  + .signup-form-boolean {
-    margin-left: 5px;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  button {
+    background: none;
+    color: $brand-dark;
+    border: $brand-dark solid 1px;
+    border-radius: 5px;
+
+    & + button {
+      margin-left: 5px;
+    }
+
+    &.active {
+      background-color: $brand-dark;
+      color: #fff;
+    }
   }
 
   .signup-form-boolean-description {
@@ -88,5 +118,17 @@ category: colors
   &.active {
     background: $brand-main;
     color: #fff;
+  }
+}
+
+.signup-actions {
+  margin-top: 10px;
+  color: $brand-main;
+  text-align: left;
+  align-items: center;
+  display: flex;
+
+  input[type="submit"] {
+    margin-left: auto;
   }
 }

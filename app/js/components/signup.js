@@ -5,11 +5,13 @@ import { Link } from 'react-router';
 import ApplicationLayout from './application_layout';
 import AccountRegistration from './registration/account_registration';
 import Availability from './registration/availability';
+import Skills from './registration/Skills';
 
-const FormFlow = ['AccountRegistration', 'Availability']
+const FormFlow = ['AccountRegistration', 'Skills', 'Availability']
 
 const FormMappings = {
   'AccountRegistration': AccountRegistration,
+  'Skills': Skills,
   'Availability': Availability
 }
 
@@ -51,11 +53,7 @@ class SignUp extends React.Component{
   }
 
   renderSignupContent() {
-    return (
-      <div className="container">
-        {this.state.currentForm}
-      </div>
-    );
+    return this.state.currentForm;
   }
 
   render() {

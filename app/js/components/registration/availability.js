@@ -8,34 +8,51 @@ class Availability extends React.Component {
 
     this.state = {
       formInformation: {
-        skills: []
+        availability: {
+          monday: {},
+          tuesday: {},
+          wednesday: {},
+          thursday: {},
+          friday: {}
+        }
       }
     }
 
-    this.updateSkills = this.updateSkills.bind(this);
+    this.updateAvailability = this.updateAvailability.bind(this);
   }
 
-  updateSkills(e) {
-    var currentFormInformation = Object.assign({}, this.state.formInformation),
-        currentSkills = currentFormInformation.skills,
-        currentSkill = e.currentTarget.value;
+  updateAvailability(e) {
+    var formInformation = Object.assign({}, this.state.formInformation),
+        availability = formInformation.availability,
+        availabiltyInput = e.currentTarget.value,
+        day = e.currentTarget.getAttribute('data-day'),
+        selectedAvailability = availability[day][availabiltyInput] || false;
 
-    if(e.currentTarget.checked) {
-      currentSkills.push(e.currentTarget.value);
-    } else {
-      currentSkills.splice(currentSkills.indexOf(currentSkill), 1);
-    }
+
+    availability[day][availabiltyInput] = !selectedAvailability;
+    console.log(formInformation);
 
     this.setState({
       ...this.state,
-      formInformation: currentFormInformation
+      formInformation: formInformation
     });
   }
 
-  getDisplayClass(skill) {
+  getDayDisplayClass(day) {
+    let currentAvailability = this.state.formInformation.availability;
+    let isCurrentlyActive = Object.values(currentAvailability[day]).indexOf(true);
+
     return classNames(
-      'signup-form-boolean', 
-      { active: this.state.formInformation.skills.indexOf(skill) != -1 }
+      'signup-form-boolean',
+      {'active': isCurrentlyActive != -1}
+    );
+  }
+
+  getButtonDisplayClass(day, time) {
+    let currentAvailability = this.state.formInformation.availability;
+
+    return classNames(
+      {'active': currentAvailability[day][time]}
     );
   }
 
@@ -43,76 +60,61 @@ class Availability extends React.Component {
     return this.state.formInformation;
   }
 
+  renderDay(day) {
+    return (
+      <div className={this.getDayDisplayClass(day)}>
+        <div>
+          <p>{day.charAt(0).toUpperCase() + day.slice(1)}</p>
+          <div>
+            <button 
+              className={this.getButtonDisplayClass(day, "morning")} 
+              onClick={this.updateAvailability} 
+              data-day={day} 
+              value="morning"
+            >
+              Morning
+            </button>
+            <button
+              className={this.getButtonDisplayClass(day, "afternoon")} 
+              onClick={this.updateAvailability} 
+              data-day={day} 
+              value="afternoon"
+            >
+              Afternoon
+            </button>
+            <button 
+              className={this.getButtonDisplayClass(day, "evening")} 
+              onClick={this.updateAvailability} 
+              data-day={day} 
+              value="evening"
+            >
+              Evening
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <form className="signup-form" onSubmit={this.props.formSubmit}>
-        <h1>How could you help?</h1>
-        <p>Select the category or categories that best describe what ways you can help principals. This will help us show you relevant opportunities</p>
-        <div>
-          <label className={this.getDisplayClass('legal')}>
-            <input onChange={this.updateSkills} type="checkbox" name="legal" id="legal" value="legal" />
-            <p className="signup-form-boolean-description">
-              Legal<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>
-          </label>
-          <label className={this.getDisplayClass('budgeting')}>
-            <input onChange={this.updateSkills} type="checkbox" name="budgeting" id="budgeting" value="budgeting" />
-            <p className="signup-form-boolean-description">
-              Budgeting<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>          
-          </label>
+        <h1>When are you available to help?</h1>
+        <p>
+          This information will help us show you opportunities that best fit your schedule. 
+          You can still apply for specific postings at other times and can always edit your preferences later.
+        </p>
+        {this.renderDay('monday')}
+        {this.renderDay('tuesday')}
+        {this.renderDay('wednesday')}
+        {this.renderDay('thursday')}
+        {this.renderDay('friday')}
+        <div className="container">
+          <div className="signup-actions">
+            <span>Skip this step for now</span>
+            <input type="submit" value="submit" className="btn btn-primary pull-right" />
+          </div>
         </div>
-        <div>
-          <label className={this.getDisplayClass('accounting')}>
-            <input onChange={this.updateSkills} type="checkbox" name="accounting" id="accounting" value="accounting"/>
-            <p className="signup-form-boolean-description">
-              Accounting<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>          
-          </label>
-          <label className={this.getDisplayClass('public_relations')}>
-            <input onChange={this.updateSkills} type="checkbox" name="public_relations" id="public-relations" value="public_relations" />
-            <p className="signup-form-boolean-description">
-              Public Relations<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>
-          </label>
-        </div>
-        <div>
-          <label className={this.getDisplayClass('conflict_resolution')}>
-            <input onChange={this.updateSkills} type="checkbox" name="conflict_resolution" id="conflict-resolution" value="conflict_resolution" />
-            <p className="signup-form-boolean-description">
-              Conflict Resolution<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>
-          </label>
-          <label className={this.getDisplayClass('teacher_training')}>
-            <input onChange={this.updateSkills} type="checkbox" name="teacher_training" id="teacher-training" value="teacher_training" />
-            <p className="signup-form-boolean-description">
-              Teacher Training<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>
-          </label>
-        </div>
-        <div>
-          <label className={this.getDisplayClass('it')}>
-            <input onChange={this.updateSkills} type="checkbox" name="it" id="it" value="it" />
-            <p className="signup-form-boolean-description">
-              IT<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>
-          </label>
-          <label className={this.getDisplayClass('policy_making')}>
-            <input onChange={this.updateSkills} type="checkbox" name="policy_making" id="policy-making" value="policy_making" />
-            <p className="signup-form-boolean-description">
-              Policy Making<br/>
-              Examples of these tasks could go here to give them some idea
-            </p>
-          </label>
-        </div>
-        <input type="submit" value="submit" className="btn btn-primary pull-right" />
       </form>
     )
   }
