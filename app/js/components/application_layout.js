@@ -21,6 +21,7 @@ class ApplicationLayout extends React.Component {
               {this.props.sidebarContent}
             </div>}
             <div className="content">
+              {this.props.header && <h1 className="content-header">{this.props.header}</h1>}
               {this.props.mainBodyContent}
             </div>
           </div>

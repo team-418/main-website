@@ -13,6 +13,7 @@ class AccountRegistrationPage extends React.Component {
   render() {
     return (
       <ApplicationLayout 
+        header="Account Registration"
         leftLinks={[
           <Link to="/styleguide">Home</Link>,
           <Link to="/styleguide/account_registration">Account Information Components</Link>
