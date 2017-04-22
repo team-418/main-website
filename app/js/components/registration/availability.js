@@ -67,7 +67,8 @@ class Availability extends React.Component {
           <p>{day.charAt(0).toUpperCase() + day.slice(1)}</p>
           <div>
             <button 
-              className={this.getButtonDisplayClass(day, "morning")} 
+              className={this.getButtonDisplayClass(day, "morning")}
+              type="button"
               onClick={this.updateAvailability} 
               data-day={day} 
               value="morning"
@@ -75,15 +76,17 @@ class Availability extends React.Component {
               Morning
             </button>
             <button
-              className={this.getButtonDisplayClass(day, "afternoon")} 
-              onClick={this.updateAvailability} 
-              data-day={day} 
+              className={this.getButtonDisplayClass(day, "afternoon")}
+              type="button"
+              onClick={this.updateAvailability}
+              data-day={day}
               value="afternoon"
             >
               Afternoon
             </button>
             <button 
-              className={this.getButtonDisplayClass(day, "evening")} 
+              className={this.getButtonDisplayClass(day, "evening")}
+              type="button"
               onClick={this.updateAvailability} 
               data-day={day} 
               value="evening"

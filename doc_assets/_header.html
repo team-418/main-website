@@ -6,24 +6,23 @@
     <link rel=stylesheet href="../assets/styleguide.css" type="text/css">
   </head>
   <body>
-    <div>
-      <div id="root"></div>
-      <div class="col-md-3 sidebar" id="navigational-links">
-        <h3>Information</h3>
-        <nav class="sidebar-navigation">
+    <div id="root"></div>
+    <div class="col-md-3 sidebar" id="navigational-links">
+      <h3>Information</h3>
+      <nav class="sidebar-navigation">
+        <ul>
+          <li><a href="#">Home 1</a></li>
+          <li><a href="#">Home 2</a></li>
+          <li><a href="#">Home 3</a></li>
+          <li><a href="#">Home 4</a></li>
+        </ul>
+      </nav>
+    </div>
+      <div id="sidebar-content">
+        <h1>Principal's Connect</h1>
+        <section class="content">
           <ul>
-            <li><a href="#">Home 1</a></li>
-            <li><a href="#">Home 2</a></li>
-            <li><a href="#">Home 3</a></li>
-            <li><a href="#">Home 4</a></li>
+          <% @blocks.each do |b| %>
+            <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li>
+          <% end %>
           </ul>
-        </nav>
-      </div>
-        <div id="sidebar-content">
-          <h1>Principal's Connect</h1>
-          <section class="content">
-            <ul>
-            <% @blocks.each do |b| %>
-              <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li>
-            <% end %>
-            </ul>
