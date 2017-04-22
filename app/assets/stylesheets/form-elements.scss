@@ -35,14 +35,24 @@ category: colors
   background-color: $form-elem;
 }
 
+input.btn{
+  height: auto;
+}
+
 .signup-form {
   @extend .clearfix;
-
   text-align: center;
+
+  .main-form-container {
+      padding: 40px 0;
+  }
 
   h1 {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    & ~ p {
+        margin-bottom: 40px;
+    }
   }
 
   .account-type-input {
@@ -50,6 +60,7 @@ category: colors
 
     label {
       display: block;
+      margin-top: 10px;
     }
   }
 
@@ -60,10 +71,12 @@ category: colors
 
     .or-indicator {
       display: inline-block;
-      margin: 20px;
+      margin: 0 20px 20px;
+      font-weight: 500;
+      text-transform: uppercase;
       border-radius: 20px;
       color: $brand-white;
-      background: #000;
+      background: $brand-dark;
       padding: 5px 20px;
     }
   }
@@ -78,10 +91,11 @@ category: colors
 }
 
 .signup-form-boolean {
+  background-color: $accent-gray;
   display: inline-flex;
   flex-grow: 1;
   padding: 20px;
-  border: $brand-dark solid 1px;
+  border: $border-light solid 1px;
   color: #000;
   text-align: left;
   margin-right: 5px;
