@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router';
 import HtmlToReact from 'html-to-react';
+import Codeblock from 'react-uikit-codeblock';
 
 import ApplicationLayout from '../components/application_layout';
 import AccountRegistration from '../components/registration/account_registration';
@@ -31,15 +32,21 @@ class AccountRegistrationPage extends React.Component {
             <h1 id="account-registration">Account Registration Form</h1>
             <hr />
             <AccountRegistration />
-            <pre>
-              'This is a string'
-            </pre>
+            <Codeblock>
+              {`<AccountRegistration />`}
+            </Codeblock>
             <h1 id="availability">Availability Form</h1>
             <hr />
             <Availability />
+            <Codeblock>
+              {`<Availability />`}
+            </Codeblock>
             <h1 id="skills">Skills Form</h1>
             <hr />
             <Skills />
+            <Codeblock>
+              {`<Skills />`}
+            </Codeblock>
           </div>
         } />
     )

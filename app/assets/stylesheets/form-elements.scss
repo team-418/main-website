@@ -36,6 +36,8 @@ category: colors
 }
 
 .signup-form {
+  @extend .clearfix;
+
   text-align: center;
 
   h1 {
