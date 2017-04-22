@@ -17,21 +17,31 @@ class User {
    *     , 'last_name': 'test user'
    *     , 'role': 'advisor'
    *     }
-   *  success: The callback to execute if the server response is a success.
-   *  failure: The callbock to execute if the server response is a failure.
+   *
+   * Returns: An Axios Promise. The most common thing you'll want to do with
+   *   this object is supply the success and failure callbacks.
+   *   e.g.
+   *   User.create(user_attributes)
+   *     .then(res => {
+   *       console.log(res);
+   *     })
+   *     .catch(err => {
+   *       console.error(err);
+   *     });
    *****************************************************************************/
-  static create(user_attributes, success, failure) {
+  static create(user_attributes) {
     if (!User._validate_create_user_attributes(user_attributes)) {
-      console.error('Required attributes were missing, skip requesting user creation to server.');
-      return;
+      let msg = 'Required attributes were missing, skip requesting user creation to server.';
+      console.error(msg);
+      throw msg;
     }
 
-    axios({
+    return axios({
       method: 'post',
       url: 'api/users.json',
       headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
       data: { 'user': user_attributes }
-    }).then(success).catch(failure);
+    });
   }
 
   /******************************************************************************
@@ -52,19 +62,41 @@ class User {
    * 'password_confirmation' keys of the 'user_attributes' hash.
    *
    * Parameters:
-   *   email: The e-mail string of the user to modify.
-   *   password: The current password string for the user to modify.
-   *   user_attributes: A hash containing the User attributes to update.
-   *     e.g. { 'password': 'new_p@ssw0rd'
-   *          , 'password_confirmation': 'new_p@ssw0rd'
+   *   user_attributes: A hash containing the User attributes for both user
+   *     authentication and the parameters to update.
+   *
+   *     - When changing the password, use "new_password" as the new passowrd.
+   *     - When changing the email, use "new_email" as the new email.
+   *     e.g. { 'password': 'current_p@ssw0rd'
+   *          , 'new_password': 'new_p@ssw0rd'
+   *          , 'email': 'current_email'
+   *          , 'new_email': 'new_email'
    *          , 'last_name': 'Smith'
    *          }
+   *
+   * Returns: An Axios Promise. The most common thing you'll want to do with
+   *   this object is supply the success and failure callbacks.
+   *   e.g.
+   *   User.edit(user_attributes)
+   *     .then(res => {
+   *       console.log(res);
+   *     })
+   *     .catch(err => {
+   *       console.error(err);
+   *     });
    *****************************************************************************/
-  static edit(email, password, user_attributes) {
+  static edit(user_attributes) {
     if (!User._validate_edit_user_attributes(user_attributes)) {
       console.error('Required attributes were missing, skip requesting user creation to server.');
       return;
     }
+
+    axios({
+      method: 'put',
+      url: 'api/users.json',
+      headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
+      data: { 'user': user_attributes }
+    });
   }
 
   // Private helper functions and properties
@@ -81,6 +113,7 @@ class User {
                          , 'first_name'
                          , 'last_name'
                          , 'role'
+                         , 'zip'
                          ];
     required_attrs.push.apply(required_attrs, User._required_user_attributes);
     return Util.validate_axios_params(required_attrs, user_attributes);
