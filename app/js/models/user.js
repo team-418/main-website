@@ -16,6 +16,7 @@ class User {
    *     , 'first_name': 'test user'
    *     , 'last_name': 'test user'
    *     , 'role': 'advisor'
+   *     , 'zip': '54321'
    *     }
    *
    * Returns: An Axios Promise. The most common thing you'll want to do with
@@ -28,6 +29,18 @@ class User {
    *     .catch(err => {
    *       console.error(err);
    *     });
+   *
+   * Example Call:
+   *   User.create({ 'email': 'testing@email.com'
+   *               , 'password': 'password'
+   *               , 'password_confirmation': 'password'
+   *               , 'first_name': 'test'
+   *               , 'last_name': 'user'
+   *               , 'role': 'advisor'
+   *               , 'zip': '12345'
+   *               })
+   *     .then(data => { console.log(data); })
+   *     .catch(err => { console.error(err); });
    *****************************************************************************/
   static create(user_attributes) {
     if (!User._validate_create_user_attributes(user_attributes)) {
@@ -87,11 +100,12 @@ class User {
    *****************************************************************************/
   static edit(user_attributes) {
     if (!User._validate_edit_user_attributes(user_attributes)) {
-      console.error('Required attributes were missing, skip requesting user creation to server.');
-      return;
+      let msg = 'Required attributes were missing, skip requesting user creation to server.';
+      console.error(msg);
+      throw msg;
     }
 
-    axios({
+    return axios({
       method: 'put',
       url: 'api/users.json',
       headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
