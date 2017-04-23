@@ -35,14 +35,24 @@ category: colors
   background-color: $form-elem;
 }
 
-.signup-form {
-  @extend .row;
+input.btn{
+  height: auto;
+}
 
+.signup-form {
+  @extend .clearfix;
   text-align: center;
+
+  .main-form-container {
+      padding: 40px 0;
+  }
 
   h1 {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    & ~ p {
+        margin-bottom: 40px;
+    }
   }
 
   .account-type-input {
@@ -50,6 +60,7 @@ category: colors
 
     label {
       display: block;
+      margin-top: 10px;
     }
   }
 
@@ -60,24 +71,59 @@ category: colors
 
     .or-indicator {
       display: inline-block;
-      margin: 20px;
+      margin: 0 20px 20px;
+      font-weight: 500;
+      text-transform: uppercase;
       border-radius: 20px;
       color: $brand-white;
-      background: #000;
+      background: $brand-dark;
       padding: 5px 20px;
     }
   }
 }
 
-.signup-form-boolean {
-  display: inline-flex;
-  padding: 10px;
-  background: $form-elem;
-  border: $border-dark solid 1px;
-  color: #000;
+.signup-boolean-grouping {
+  display: flex;
 
-  + .signup-form-boolean {
-    margin-left: 5px;
+  @media (max-width: $screen-sm-min) {
+    flex-direction: column;
+  }
+}
+
+.signup-form-boolean {
+  background-color: $accent-gray;
+  display: inline-flex;
+  flex-grow: 1;
+  padding: 20px;
+  border: $border-light solid 1px;
+  color: #000;
+  text-align: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  button {
+    background: none;
+    color: $brand-dark;
+    border: $brand-dark solid 1px;
+    border-radius: 5px;
+
+    & + button {
+      margin-left: 5px;
+    }
+
+    &.active {
+      background-color: $brand-dark;
+      color: #fff;
+    }
   }
 
   .signup-form-boolean-description {
@@ -88,5 +134,17 @@ category: colors
   &.active {
     background: $brand-main;
     color: #fff;
+  }
+}
+
+.signup-actions {
+  margin-top: 10px;
+  color: $brand-main;
+  text-align: left;
+  align-items: center;
+  display: flex;
+
+  input[type="submit"] {
+    margin-left: auto;
   }
 }

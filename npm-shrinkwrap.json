@@ -444,6 +444,11 @@
       "from": "brorand@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/brorand/-/brorand-1.1.0.tgz"
     },
+    "browser-fingerprint": {
+      "version": "0.0.1",
+      "from": "browser-fingerprint@0.0.1",
+      "resolved": "https://registry.npmjs.org/browser-fingerprint/-/browser-fingerprint-0.0.1.tgz"
+    },
     "browserify-aes": {
       "version": "1.0.6",
       "from": "browserify-aes@>=1.0.4 <2.0.0",
@@ -618,6 +623,18 @@
       "version": "3.11.0",
       "from": "crypto-browserify@>=3.11.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/crypto-browserify/-/crypto-browserify-3.11.0.tgz"
+    },
+    "cuid": {
+      "version": "1.3.8",
+      "from": "cuid@>=1.3.8 <1.4.0",
+      "resolved": "https://registry.npmjs.org/cuid/-/cuid-1.3.8.tgz",
+      "dependencies": {
+        "core-js": {
+          "version": "1.2.7",
+          "from": "core-js@>=1.1.1 <2.0.0",
+          "resolved": "https://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz"
+        }
+      }
     },
     "date-now": {
       "version": "0.1.4",
@@ -1895,6 +1912,11 @@
       "from": "node-fetch@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-1.6.3.tgz"
     },
+    "node-fingerprint": {
+      "version": "0.0.2",
+      "from": "node-fingerprint@0.0.2",
+      "resolved": "https://registry.npmjs.org/node-fingerprint/-/node-fingerprint-0.0.2.tgz"
+    },
     "node-libs-browser": {
       "version": "2.0.0",
       "from": "node-libs-browser@>=2.0.0 <3.0.0",
@@ -2134,6 +2156,40 @@
           "version": "0.1.31",
           "from": "source-map@0.1.31",
           "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.1.31.tgz"
+        }
+      }
+    },
+    "react-uikit-base": {
+      "version": "2.0.2",
+      "from": "react-uikit-base@>=2.0.2 <2.1.0",
+      "resolved": "https://registry.npmjs.org/react-uikit-base/-/react-uikit-base-2.0.2.tgz",
+      "dependencies": {
+        "react": {
+          "version": "15.3.2",
+          "from": "react@~15.3.2",
+          "resolved": "https://registry.npmjs.org/react/-/react-15.3.2.tgz"
+        },
+        "react-dom": {
+          "version": "15.3.2",
+          "from": "react-dom@~15.3.2",
+          "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.3.2.tgz"
+        }
+      }
+    },
+    "react-uikit-codeblock": {
+      "version": "2.0.2",
+      "from": "react-uikit-codeblock@latest",
+      "resolved": "https://registry.npmjs.org/react-uikit-codeblock/-/react-uikit-codeblock-2.0.2.tgz",
+      "dependencies": {
+        "react": {
+          "version": "15.3.2",
+          "from": "react@>=15.3.2 <15.4.0",
+          "resolved": "https://registry.npmjs.org/react/-/react-15.3.2.tgz"
+        },
+        "react-dom": {
+          "version": "15.3.2",
+          "from": "react-dom@>=15.3.2 <15.4.0",
+          "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.3.2.tgz"
         }
       }
     },
@@ -2395,6 +2451,11 @@
       "version": "0.7.12",
       "from": "ua-parser-js@>=0.7.9 <0.8.0",
       "resolved": "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.12.tgz"
+    },
+    "ufunc": {
+      "version": "2.0.1",
+      "from": "ufunc@>=2.0.1 <2.1.0",
+      "resolved": "https://registry.npmjs.org/ufunc/-/ufunc-2.0.1.tgz"
     },
     "uglify-js": {
       "version": "2.7.5",
