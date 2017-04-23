@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import PrimaryNavigation from './primary_navigation';
 import MainFooter from './main_footer';
+import User from '../models/user';
 
 class home extends React.Component {
   constructor(props) {
@@ -12,45 +13,38 @@ class home extends React.Component {
   }
 
   componentDidMount() {
-    var _this = this;
+    var _this = this; // access the react component as '_this' so that it can be accessed from within callbacks like axios.get, for instance
 
       // resource create
     axios({
-        method: 'post',
-        url: 'api/institutions.json',
-        headers: { "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content') },
-        data: { 'institution': { 'institution_name': '418' } }
+      method: 'post',
+      url: 'api/institutions.json',
+      headers: { "X-CSRF-Token": $('meta[name="csrf-token"]').attr('content') },
+      data: { 'institution': { 'institution_name': '418' } }
     }).then(function (res) {
-        console.log(res);
+      console.log(res);
     }).catch(function (error) {
-        console.log(error);
+      console.log(error);
     });
 
       // resource get
     axios.get('api/institutions/2.json')
-        .then(function (res) {
-            console.log(res);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
-      // user signin
-      axios({
-          method: 'post',
-          url: 'api/users.json',
-          headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
-          data: { 'user': {
-              'email': 'testing@email.com',
-              'password': 'password',
-              'password_confirmation': 'password',
-              'user_name': 'test user'
-          }}
-      }).then(function (res) {
-          console.log(res);
-      }).catch(function (error) {
-          console.log(error);
+      .then(function (res) {
+        console.log(res);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
+
+    User.create({ 'email': 'testing@email.com'
+                , 'password_confirmation': 'password'
+                , 'first_name': 'test'
+                , 'last_name': 'user'
+                , 'role': 'advisor'
+                }
+                , data => { console.log(data); }
+                , err => { console.error(err); });
+
   }
 
   render() {
