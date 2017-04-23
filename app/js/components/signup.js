@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import ApplicationLayout from './application_layout';
 import AccountRegistration from './registration/account_registration';
 import Availability from './registration/availability';
-import Skills from './registration/Skills';
+import Skills from './registration/skills';
 
 const FormFlow = ['AccountRegistration', 'Skills', 'Availability']
 
