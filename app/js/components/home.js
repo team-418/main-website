@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import PrimaryNavigation from './primary_navigation';
 import MainFooter from './main_footer';
-import User from '../models/user';
+import User from '../services/user';
 
 class home extends React.Component {
   constructor(props) {
