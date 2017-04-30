@@ -2,6 +2,11 @@ import axios from 'axios';
 
 import Util from './util';
 
+/********************************************************************************
+ * This service deals with actions that involve a user's registration, such as
+ * signup, unregister, and change password, and a user's profile information,
+ * such as changing first_name, address, associated institution, etc.
+ *******************************************************************************/
 class User {
   /******************************************************************************
    * Create a new user (synonymous with Sign-up).
@@ -50,10 +55,10 @@ class User {
     }
 
     return axios({
-      method: 'post',
+      method: 'POST',
       url: 'api/users.json',
       headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
-      data: { 'user': user_attributes }
+      data: { user: user_attributes }
     });
   }
 
@@ -106,10 +111,10 @@ class User {
     }
 
     return axios({
-      method: 'put',
+      method: 'PUT',
       url: 'api/users.json',
       headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') },
-      data: { 'user': user_attributes }
+      data: { user: user_attributes }
     });
   }
 
