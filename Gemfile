@@ -48,6 +48,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -59,7 +61,14 @@ group :development do
 
   gem 'pry'
   gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-git'
   gem 'pry-byebug'
+  gem 'pry-coolline'
+  gem 'pry-stack_explorer'
+  gem 'coderay'
+  gem 'hirb'
+  gem 'awesome_print'
 end
 
 gem 'rails_12factor', group: :production

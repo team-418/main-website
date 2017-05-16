@@ -56,3 +56,15 @@ The first parameter, ruby418, is the name of the container.  The second paramete
 
 Some changes to the container could benefit the entire team (like caching bundle install runs).  However, before you do this, PM the `general` slack channel with `@channel` to notify everyone.  You must get a thumbs-up from at least one Rails dev, one Javascript dev, and one Graphic Designer before you can push the change to `josiah14/heroku-ruby418:latest`.
 
+## Testing
+
+### Rails Server Integration Tests
+
+On the Rails server side of things, the intergration tests are written using Cucumber via the cucumber-rails Gem.  Features are in the `features` directory, and the test code which implements the features is found in the `features/step_definitions` directory.
+
+#### Running the Tests
+
+To run the tests, execute the following command from the `/app/user/website` directory inside of the `josiah14/ruby418` docker container.
+
+- `cucumber -s`
+
