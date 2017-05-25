@@ -4,7 +4,16 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
+ENV['RAILS_ENV'] = 'test'
+
 require 'cucumber/rails'
+
+if Rails.env.development?
+  raise "Unsafe to run Cucumber features in development mode. " +
+        "Explicitly set RAILS_ENV=test, such as `RAILS_ENV=test cucumber -s`."
+end
+
+World(FactoryGirl::Syntax::Methods)
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
