@@ -45,12 +45,13 @@ When "the user signs up with an unregistered e-mail" do
     '/api/users.json',
     {
       user: {
-        email: 'testing1@email.com',
+        email: 'test@email.com',
         password: 'password',
         password_confirmation: 'password',
-        first_name: 'josiah',
-        last_name: 'berkebile',
-        zip: '12345'
+        first_name: 'test',
+        last_name: 'user',
+        role: 'advisor',
+        postal_code: '12345'
       }
     },
     { 'X-CSRF-Token': @csrf_token }
@@ -67,17 +68,18 @@ And "the server should provide the ID of the user it created." do
 end
 
 When "the user signs up with a registered e-mail" do
+  user = create(:user)
   @res = post(
     '/api/users.json',
     {
       user: {
-        email: 'testing@email.com',
-        password: 'password',
-        password_confirmation: 'password',
-        first_name: 'josiah',
-        last_name: 'berkebile',
+        email: user.email,
+        password: 'anything',
+        password_confirmation: 'anything',
+        first_name: 'any_name',
+        last_name: 'any_surname',
         role: 'advisor',
-        zip: '12345'
+        postal_code: '55555'
       }
     },
     { 'X-CSRF-Token': @csrf_token }

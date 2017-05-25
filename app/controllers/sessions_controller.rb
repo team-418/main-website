@@ -6,7 +6,7 @@ class SessionsController < Devise::SessionsController
 
   def create
     sign_in(resource_name, warden.authenticate!(scope: resource_name, recall: "#{controller_path}#failure"))
-    render status: 200, json: {success: true}, content_type: 'application/json'
+    render status: 201, json: {success: true}, content_type: 'application/json'
   end
 
   def failure
