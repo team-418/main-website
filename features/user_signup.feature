@@ -32,3 +32,21 @@ Given that the user has successfully loaded the website
 When the user signs up without providing an e-mail
 Then the server should indicate an error via a 422: Unprocessable Entity code
 And the json response should indicate the reason for the failure is that an e-mail wasn't provided
+
+Scenario: A user attempts to sign-up without providing a role
+Given that the user has successfully loaded the website
+When the user signs up without providing a role
+Then the server should indicate an error via a 422: Unprocessable Entity code
+And the json response should indicate the reason for the failure is that a role wasn't provided
+
+Scenario: A user attempts to sign-up without providing a first name
+Given that the user has successfully loaded the website
+When the user signs up without providing a first name
+Then the server should indicate an error via a 422: Unprocessable Entity code
+And the json response should indicate the reason for the failure is that a first name wasn't provided
+
+Scenario: A user attempts to sign-up without providing a last name
+Given that the user has successfully loaded the website
+When the user signs up without providing a last name
+Then the server should indicate an error via a 422: Unprocessable Entity code
+And the json response should indicate the reason for the failure is that a last name wasn't provided

@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   has_many :time_period
   has_many :review
   has_many :skill
+  belongs_to :role, foreign_key: :role
+
+  validates :role, :first_name, :last_name, presence: true
 end
