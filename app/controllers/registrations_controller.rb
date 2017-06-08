@@ -6,14 +6,17 @@ class RegistrationsController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token, :only => [ :create, :cancel ]
 
   def sign_up_params
-    params.require(:user).permit(
+    user_params = params.require(:user).permit(
       :email,
       :password,
       :password_confirmation,
       :role,
       :first_name,
-      :last_name
+      :last_name,
+      :postal_code
     )
+    user_params[:role] = Role.find_by(name: user_params[:role])
+    user_params
   end
 
   def account_update_params
