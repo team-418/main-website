@@ -30,11 +30,6 @@
 #   { 'X-CSRF-Token': npage.css('meta[name="csrf-token"]').attr('content').value }
 # )
 
-Given "that the user has successfully loaded the website" do
-  visit root_path
-  @csrf_token = Nokogiri::HTML(page.html).css('meta[name="csrf-token"]').attr('content').value
-end
-
 When "the user signs up with an unregistered e-mail" do
   role = create(:role)
   # There is a known problem in Rack where they are using a method `join'
