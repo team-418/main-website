@@ -16,10 +16,3 @@ Scenario: A signed out user requests to sign out
   When the user tries to sign-out
   Then the server should indicate it destroyed the current user's session via a 204: No Content status
   And the json response should indicate there was nothnig to do since the user wasn't signed-in
-
-Scenario: A signed in user requests to sign out twice in a row
-  Given that the user has successfully loaded the website
-  And the user is signed in
-  When the user tries to sign-out twice in a row
-  Then the server should indicate it destroyed the current user's session via a 204: No Content status
-  And the json response should indicate there was nothnig to do since the user wasn't signed-in

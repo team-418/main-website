@@ -5,18 +5,6 @@ When(/^the user tries to sign\-out$/) do
   )
 end
 
-When "the user tries to sign-out twice in a row" do
-   @res = delete(
-    'api/users/sign_out.json',
-    { 'X-Transaction': 'Destroy Current User Session' }
-  )
-
-  @res = delete(
-    'api/users/sign_out.json',
-    { 'X-Transaction': 'Destroy Current User Session' }
-  )
-end
-
 Then "the server should indicate it destroyed the current user's session via a 204: No Content status" do
   expect(@res.status).to be(204)
 end
